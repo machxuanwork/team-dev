@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Cho phép dùng ảnh từ bất kỳ URL https nào (vd. dán link ảnh có sẵn), bên cạnh ảnh nội bộ trong public/.
+    // An toàn ở đây vì các URL này chỉ do bạn tự gõ trong src/data/*, không phải do người dùng site nhập vào.
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }]

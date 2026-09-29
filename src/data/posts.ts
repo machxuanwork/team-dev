@@ -15,6 +15,8 @@ export type Post = {
   readingMinutes: number
   author: string
   tone: "warm" | "green" | "blue" | "sun"
+  /** Ảnh bìa thật (vd. "/blog/checklist-seo.jpg" trong public/blog/). Bỏ trống thì dùng bìa minh hoạ vẽ sẵn. */
+  image?: string
   body: PostBlock[]
 }
 

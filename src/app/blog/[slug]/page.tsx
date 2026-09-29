@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <div className="mx-auto mt-12 max-w-5xl px-6">
         <div className="relative aspect-[16/8] overflow-hidden rounded-[2rem]">
-          <Cover title={post.title} tone={post.tone} variant="editorial" label={post.category} />
+          <Cover title={post.title} tone={post.tone} variant="editorial" label={post.category} image={post.image} />
         </div>
       </div>
 

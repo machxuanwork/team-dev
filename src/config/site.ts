@@ -8,7 +8,7 @@ export const siteConfig = {
   tagline: "Xây phần mềm đẹp, chạy nhanh và dùng lâu dài.",
   description:
     "DevTeam là studio phần mềm tại Việt Nam: thiết kế, phát triển website, ứng dụng di động và hệ thống cloud cho doanh nghiệp. Làm việc minh bạch, bàn giao đúng hẹn.",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://mydevteam.com",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://team-dev-teal.vercel.app",
   ogImage: "/opengraph-image",
   locale: "vi_VN",
   foundingYear: 2019,
@@ -25,10 +25,10 @@ export const siteConfig = {
     "team dev Việt Nam",
   ],
   contact: {
-    email: "contact@devteam.vn",
-    phone: "+84 901 234 567",
-    phoneRaw: "+84901234567",
-    address: "Tầng 8, Toà nhà Sunrise, Quận 1",
+    email: "machngocxuan.work@gmail.com",
+    phone: "+84 936 113 142",
+    phoneRaw: "+84936113142",
+    address: "51 Nguyễn Ngọc Nhựt, Phường Phú Thọ Hòa, Quận Tân Phú, TP. Hồ Chí Minh",
     city: "TP. Hồ Chí Minh",
     country: "VN",
     hours: "Thứ 2 – Thứ 6, 9:00 – 18:00",

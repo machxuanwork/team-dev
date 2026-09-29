@@ -25,7 +25,7 @@ export function ProjectCard({ p, dark = false, index = 0 }: { p: Project; dark?:
           <TiltCard max={4}>
             <div className={cn("relative aspect-[4/3] overflow-hidden rounded-3xl ring-1", dark ? "ring-white/10" : "ring-black/5")}>
               <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]">
-                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} />
+                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} />
               </div>
               <span className="absolute top-5 right-5 grid size-12 translate-y-2 scale-90 place-items-center rounded-full bg-background text-ink opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:opacity-100">
                 <ArrowUpRight className="size-5" aria-hidden />

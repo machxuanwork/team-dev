@@ -8,7 +8,8 @@ export type ProjectExtra = {
   team: string
   platform: string
   highlights: { title: string; text: string }[]
-  screens: { variant: CoverVariant; caption: string }[]
+  /** `image` là ảnh chụp màn hình thật (vd. "/projects/moc-lam/home.jpg"). Bỏ trống thì dùng mockup vẽ sẵn theo `variant`. */
+  screens: { variant: CoverVariant; caption: string; image?: string }[]
   phases: { name: string; time: string; text: string }[]
   quoteBy: { name: string; role: string }
 }
@@ -26,9 +27,9 @@ export const projectExtras: Record<string, ProjectExtra> = {
       { title: "Ảnh tải gần như tức thì", text: "Ảnh sản phẩm dùng định dạng AVIF, tải theo nhu cầu và cache toàn cầu nên trang chủ hiển thị dưới 1,2 giây." },
     ],
     screens: [
-      { variant: "browser", caption: "Trang chủ và danh mục sản phẩm" },
-      { variant: "phone", caption: "Trải nghiệm mua hàng trên điện thoại" },
-      { variant: "dashboard", caption: "Trang quản lý đơn hàng cho nhân viên" },
+      { variant: "browser", caption: "Trang chủ và danh mục sản phẩm", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg"},
+      { variant: "phone", caption: "Trải nghiệm mua hàng trên điện thoại", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg"},
+      { variant: "dashboard", caption: "Trang quản lý đơn hàng cho nhân viên", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
     ],
     phases: [
       { name: "Khám phá", time: "1 tuần", text: "Phân tích hành vi khách hàng, tìm ra điểm khiến họ bỏ giỏ hàng." },
@@ -50,9 +51,9 @@ export const projectExtras: Record<string, ProjectExtra> = {
       { title: "Báo cáo hiệu suất tự động", text: "Thống kê quãng đường, thời gian dừng và mức tiêu hao theo tài xế, xuất ra Excel chỉ với một cú bấm." },
     ],
     screens: [
-      { variant: "map", caption: "Bản đồ điều phối thời gian thực" },
-      { variant: "dashboard", caption: "Bảng chỉ số vận hành" },
-      { variant: "calendar", caption: "Lịch chuyến và phân công tài xế" },
+      { variant: "map", caption: "Bản đồ điều phối thời gian thực", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
+      { variant: "dashboard", caption: "Bảng chỉ số vận hành", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
+      { variant: "calendar", caption: "Lịch chuyến và phân công tài xế", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
     ],
     phases: [
       { name: "Khám phá", time: "2 tuần", text: "Theo chân điều phối viên một ngày để hiểu quy trình thực tế." },
@@ -74,9 +75,9 @@ export const projectExtras: Record<string, ProjectExtra> = {
       { title: "Chịu tải giờ cao điểm", text: "Hệ thống được kiểm thử chịu tải với gấp 5 lần lượng đơn dự kiến, chạy êm vào khung giờ ăn trưa." },
     ],
     screens: [
-      { variant: "phone", caption: "Trang chủ và luồng đặt món" },
-      { variant: "calendar", caption: "Lịch đặt món theo tuần" },
-      { variant: "dashboard", caption: "Trang quản lý cho từng gian bếp" },
+      { variant: "phone", caption: "Trang chủ và luồng đặt món", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
+      { variant: "calendar", caption: "Lịch đặt món theo tuần", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
+      { variant: "dashboard", caption: "Trang quản lý cho từng gian bếp", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
     ],
     phases: [
       { name: "Khám phá", time: "1 tuần", text: "Trò chuyện với các gia đình nấu ăn và người đặt món để tìm ra nhu cầu thật." },
@@ -98,9 +99,9 @@ export const projectExtras: Record<string, ProjectExtra> = {
       { title: "Nhắc lịch tự động", text: "Tin nhắn nhắc lịch qua SMS và Zalo giúp giảm hẹn bỏ và giữ lịch khám luôn đầy đặn." },
     ],
     screens: [
-      { variant: "calendar", caption: "Lịch hẹn của bác sĩ" },
-      { variant: "dashboard", caption: "Tổng quan phòng khám" },
-      { variant: "browser", caption: "Cổng đặt lịch cho bệnh nhân" },
+      { variant: "calendar", caption: "Lịch hẹn của bác sĩ", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
+      { variant: "dashboard", caption: "Tổng quan phòng khám", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
+      { variant: "browser", caption: "Cổng đặt lịch cho bệnh nhân", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
     ],
     phases: [
       { name: "Khám phá", time: "2 tuần", text: "Quan sát quy trình tiếp đón và khám tại 3 phòng khám." },

@@ -36,7 +36,7 @@ export default function BlogPage() {
         <Link href={`/blog/${featured.slug}`} className="group grid items-center gap-8 rounded-[2rem] bg-white p-4 ring-1 ring-border transition-shadow hover:shadow-[0_30px_70px_-40px_rgba(30,28,25,0.4)] md:grid-cols-2 md:p-5">
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
             <div className="size-full transition-transform duration-[900ms] group-hover:scale-[1.04]">
-              <Cover title={featured.title} tone={featured.tone} variant="editorial" label={featured.category} />
+              <Cover title={featured.title} tone={featured.tone} variant="editorial" label={featured.category} image={featured.image} />
             </div>
           </div>
           <article className="p-2 md:p-6">
@@ -58,7 +58,7 @@ export default function BlogPage() {
             <Link href={`/blog/${p.slug}`} className="group block rounded-[2rem] bg-white p-4 ring-1 ring-border transition-all hover:-translate-y-1 hover:shadow-[0_30px_70px_-40px_rgba(30,28,25,0.4)]">
               <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
                 <div className="size-full transition-transform duration-[900ms] group-hover:scale-[1.04]">
-                  <Cover title={p.title} tone={p.tone} variant="editorial" label={p.category} />
+                  <Cover title={p.title} tone={p.tone} variant="editorial" label={p.category} image={p.image} />
                 </div>
               </div>
               <article className="p-3 pt-6">

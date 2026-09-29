@@ -126,7 +126,7 @@ export default async function ProjectPage({ params }: Props) {
           <Reveal variant="scale">
             <TiltCard max={2.5}>
               <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] shadow-[0_60px_120px_-50px_rgba(30,28,25,0.55)] ring-1 ring-black/5 md:rounded-[2.5rem]">
-                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} />
+                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/[0.14] to-transparent" aria-hidden />
               </div>
             </TiltCard>
@@ -275,7 +275,7 @@ export default async function ProjectPage({ params }: Props) {
               <figure className="group">
                 <div className={`relative overflow-hidden rounded-[2rem] ring-1 ring-black/5 ${i === 0 ? "aspect-[16/8]" : "aspect-[4/3]"}`}>
                   <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]">
-                    <Cover title={`${p.name} — ${s.caption}`} tone={p.tone} variant={s.variant} />
+                    <Cover title={`${p.name} — ${s.caption}`} tone={p.tone} variant={s.variant} image={s.image} />
                   </div>
                 </div>
                 <figcaption className="mt-4 flex items-center gap-3 text-[15px] text-muted-foreground">
@@ -334,7 +334,7 @@ export default async function ProjectPage({ params }: Props) {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-white/10">
               <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]">
-                <Cover title={next.name} tone={next.tone} variant={coverVariant[next.slug]} />
+                <Cover title={next.name} tone={next.tone} variant={coverVariant[next.slug]} image={next.image} />
               </div>
             </div>
           </Link>

@@ -129,6 +129,7 @@ export const projects = [
     ],
     tags: ["Next.js", "Stripe", "PostgreSQL", "Vercel"],
     tone: "warm",
+    image: "/projects/moc-lam.png" as string | undefined,
     testimonial: "Đội ngũ hiểu việc kinh doanh của tụi mình hơn cả kỳ vọng.",
   },
   {
@@ -148,6 +149,7 @@ export const projects = [
     ],
     tags: ["React", "Go", "WebSocket", "AWS"],
     tone: "green",
+    image: "/projects/lua-vang.png" as string | undefined,
     testimonial: "Sáng nào tụi mình cũng mở nó đầu tiên.",
   },
   {
@@ -167,6 +169,7 @@ export const projects = [
     ],
     tags: ["React Native", "NestJS", "Firebase", "VNPay"],
     tone: "sun",
+    image: "/projects/bep-nha.png" as string | undefined,
     testimonial: "Ba mẹ mình 60 tuổi cũng tự đặt món được.",
   },
   {
@@ -186,6 +189,7 @@ export const projects = [
     ],
     tags: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
     tone: "blue",
+    image: "/projects/so-tay-clinic.png" as string | undefined,
     testimonial: "Lễ tân đỡ áp lực hẳn, bệnh nhân cũng hài lòng hơn.",
   },
 ] as const
@@ -333,6 +337,14 @@ export const team = [
     bio: "Designer sản phẩm với con mắt kỹ tính. Tin rằng thiết kế tốt là khi người dùng không cần nghĩ mà vẫn đi đúng đường.",
     tone: "green",
     links: { linkedin: "#" },
+    image: undefined as string | undefined,
+  },
+  {
+    name: "Mạch Ngọc Xuân",
+    role: "Fullstack Developer",
+    bio: "Làm chủ cả hai đầu: dựng API bằng NestJS buổi sáng, tinh chỉnh giao diện Next.js buổi chiều. Thích nhận trọn một tính năng từ đầu đến cuối để hiểu rõ toàn hệ thống, không chỉ mảnh mình phụ trách.",
+    tone: "sun",
+    links: { linkedin: "#", github: "#" },
     image: undefined as string | undefined,
   },
   {

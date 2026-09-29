@@ -44,8 +44,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
   formatDetection: { telephone: false },
-  // Dán mã xác minh Google Search Console vào đây khi có:
-  // verification: { google: "..." },
+  verification: { google: "hpB5kqI_8i9SIZPNv0l_FjV2RuHKuQPhNXB8nC8lQWs" },
 }
 
 export const viewport: Viewport = {
