@@ -3,7 +3,6 @@
 import type { MouseEvent, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-/** Thẻ nghiêng 3D theo vị trí chuột, kèm vệt sáng. Chỉ hoạt động với chuột. */
 export function TiltCard({ children, className, max = 6 }: { children: ReactNode; className?: string; max?: number }) {
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return

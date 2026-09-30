@@ -1,10 +1,6 @@
-/**
- * Nội dung SEO riêng cho từng trang dịch vụ (/services/[slug]).
- * Mỗi trang nhắm một nhóm từ khoá khác nhau — tránh trùng lặp nội dung giữa các trang.
- */
 export type ServiceSeo = {
-  metaTitle: string // ≤ 55 ký tự (hậu tố thương hiệu sẽ được thêm tự động)
-  metaDescription: string // 140–160 ký tự
+  metaTitle: string
+  metaDescription: string
   h1: string
   h1Accent: string
   intro: string[]

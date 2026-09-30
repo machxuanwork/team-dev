@@ -7,15 +7,15 @@ export type PostBlock =
 export type Post = {
   slug: string
   title: string
-  /** Tiêu đề hiển thị trên Google (≤ 55 ký tự). Bỏ trống thì dùng title. */
+
   metaTitle?: string
   excerpt: string
   category: string
-  date: string // ISO
+  date: string
   readingMinutes: number
   author: string
   tone: "warm" | "green" | "blue" | "sun"
-  /** Ảnh bìa thật (vd. "/blog/checklist-seo.jpg" trong public/blog/). Bỏ trống thì dùng bìa minh hoạ vẽ sẵn. */
+
   image?: string
   body: PostBlock[]
 }
@@ -156,7 +156,6 @@ const allPosts: Post[] = [
 
 ]
 
-/** Bài mới nhất đứng đầu */
 export const posts: Post[] = [...allPosts].sort((a, b) => b.date.localeCompare(a.date))
 
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug)

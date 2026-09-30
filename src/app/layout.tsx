@@ -7,9 +7,8 @@ import { Footer } from "@/components/layout/Footer"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-// Be Vietnam Pro: thiết kế riêng cho tiếng Việt nên dấu luôn đẹp, dễ đọc.
 const body = Be_Vietnam_Pro({ subsets: ["latin", "vietnamese"], weight: ["400", "500", "600"], variable: "--font-body", display: "swap" })
-// Fraunces: serif mềm, có cá tính — tạo cảm giác "người thật" thay vì template.
+
 const display = Fraunces({ subsets: ["latin", "vietnamese"], style: ["normal", "italic"], variable: "--font-display", display: "swap" })
 
 export const metadata: Metadata = {

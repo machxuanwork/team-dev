@@ -13,7 +13,6 @@ type PageMeta = {
   keywords?: readonly string[]
 }
 
-/** Metadata chuẩn cho mỗi trang: title, description, canonical, Open Graph, Twitter. */
 export function buildMetadata({ title, description, path, image, type = "website", publishedTime, keywords }: PageMeta): Metadata {
   const url = absoluteUrl(path)
   return {
@@ -40,5 +39,4 @@ export function buildMetadata({ title, description, path, image, type = "website
   }
 }
 
-/** Serialize JSON-LD an toàn (tránh đóng thẻ script sớm bằng ký tự "<"). */
 export const serializeJsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c")

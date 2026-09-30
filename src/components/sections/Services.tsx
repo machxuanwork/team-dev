@@ -20,7 +20,7 @@ const toneIcon: Record<string, string> = {
   brand: "text-brand-ink",
   sky: "text-[#25476a]",
 }
-// Bố cục lưới 3 cột lấp đầy: (2+1) / (1+2) / (2+1)
+
 const span: Record<string, string> = { web: "lg:col-span-2", cloud: "lg:col-span-2", ai: "lg:col-span-2" }
 
 export function Services({ compact = false }: { compact?: boolean }) {

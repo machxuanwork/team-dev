@@ -3,7 +3,6 @@ const rows = [
   ["Thiết kế", "Lập trình", "Kiểm thử", "Ra mắt", "Đồng hành", "Tối ưu"],
 ]
 
-/** Dải chữ khổng lồ chạy ngược chiều nhau — điểm nhấn thị giác ngăn cách các phần. Trang trí, ẩn với trình đọc màn hình. */
 export function BigMarquee() {
   return (
     <div aria-hidden className="relative overflow-hidden py-6 select-none md:py-10">

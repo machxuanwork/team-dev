@@ -1,7 +1,3 @@
-/**
- * Nguồn dữ liệu duy nhất cho thông tin thương hiệu.
- * Toàn bộ số liệu / tên / liên hệ dưới đây là DỮ LIỆU MẪU — hãy thay bằng thông tin thật của team.
- */
 export const siteConfig = {
   name: "DevTeam",
   legalName: "DevTeam Software Studio",
@@ -12,7 +8,7 @@ export const siteConfig = {
   ogImage: "/opengraph-image",
   locale: "vi_VN",
   foundingYear: 2019,
-  /** Ngày cập nhật nội dung trang tĩnh (dùng cho sitemap). Đổi khi bạn sửa nội dung thật. */
+
   lastUpdated: "2026-09-25",
   keywords: [
     "công ty phần mềm",

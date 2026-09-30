@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 type Props = {
   children: ReactNode
   className?: string
-  /** Độ trễ (ms) — dùng để các phần tử xuất hiện lần lượt, nhẹ nhàng */
+
   delay?: number
   variant?: "up" | "left" | "scale"
   as?: "div" | "li" | "section" | "article"
@@ -14,7 +14,6 @@ type Props = {
 
 const variantClass = { up: "reveal", left: "reveal-left", scale: "reveal-scale" } as const
 
-/** Hiện dần khi cuộn tới. Nếu tắt JS hoặc bật "giảm chuyển động", nội dung vẫn hiển thị bình thường. */
 export function Reveal({ children, className, delay = 0, variant = "up", as: Tag = "div" }: Props) {
   const ref = useRef<HTMLElement>(null)
   const [shown, setShown] = useState(false)

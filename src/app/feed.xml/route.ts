@@ -4,7 +4,6 @@ import { absoluteUrl } from "@/lib/seo"
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
 
-/** RSS feed cho blog: giúp trình đọc tin, công cụ tổng hợp và bot khám phá bài mới nhanh hơn. */
 export function GET() {
   const items = posts
     .map(

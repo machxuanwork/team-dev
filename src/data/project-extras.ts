@@ -1,6 +1,5 @@
 import type { CoverVariant } from "@/components/ui/Cover"
 
-/** Thông tin mở rộng cho trang chi tiết dự án (case study). Dữ liệu mẫu — thay bằng dữ liệu thật. */
 export type ProjectExtra = {
   client: string
   services: string[]
@@ -8,7 +7,6 @@ export type ProjectExtra = {
   team: string
   platform: string
   highlights: { title: string; text: string }[]
-  /** `image` là ảnh chụp màn hình thật (vd. "/projects/moc-lam/home.jpg"). Bỏ trống thì dùng mockup vẽ sẵn theo `variant`. */
   screens: { variant: CoverVariant; caption: string; image?: string }[]
   phases: { name: string; time: string; text: string }[]
   quoteBy: { name: string; role: string }
@@ -27,8 +25,8 @@ export const projectExtras: Record<string, ProjectExtra> = {
       { title: "Ảnh tải gần như tức thì", text: "Ảnh sản phẩm dùng định dạng AVIF, tải theo nhu cầu và cache toàn cầu nên trang chủ hiển thị dưới 1,2 giây." },
     ],
     screens: [
-      { variant: "browser", caption: "Trang chủ và danh mục sản phẩm", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg"},
-      { variant: "phone", caption: "Trải nghiệm mua hàng trên điện thoại", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg"},
+      { variant: "browser", caption: "Trang chủ và danh mục sản phẩm", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
+      { variant: "phone", caption: "Trải nghiệm mua hàng trên điện thoại", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
       { variant: "dashboard", caption: "Trang quản lý đơn hàng cho nhân viên", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
     ],
     phases: [

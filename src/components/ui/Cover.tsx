@@ -23,10 +23,6 @@ function Chrome({ children, url = "khachhang.vn" }: { children: React.ReactNode;
   )
 }
 
-/**
- * Ảnh bìa dự án / bài viết. Chưa có ảnh → mockup vẽ bằng HTML/SVG trông như ảnh chụp sản phẩm thật.
- * Có ảnh: truyền `image` để thay thế.
- */
 export function Cover({ title, tone = "warm", image, variant = "browser", className, label }: Props) {
   const t = tones[tone]
   if (image) {

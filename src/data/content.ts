@@ -1,8 +1,3 @@
-/**
- * Nội dung mẫu cho toàn bộ website. Chỉ cần sửa file này (và src/config/site.ts) là cập nhật được nội dung.
- * Mọi tên khách hàng / dự án / con số đều là dữ liệu giả — thay bằng dữ liệu thật của team.
- */
-
 export type IconName =
   | "globe"
   | "smartphone"
@@ -387,8 +382,6 @@ export const milestones = [
   { year: "2023", title: "Văn phòng mới, khách hàng mới", text: "Làm việc với khách hàng ở Singapore và Úc. Đặt ra chuẩn code review và quy trình QA cho toàn team." },
   { year: "2025", title: "60+ dự án, vẫn nhỏ và tỉ mỉ", text: "Chúng tôi chủ động giữ team gọn để mỗi dự án đều được chăm chút như sản phẩm của chính mình." },
 ]
-
-/* ---------- Bổ sung: dịch vụ chi tiết, so sánh, chứng nhận, tuyển dụng ---------- */
 
 export const serviceDetails: Record<string, { deliverables: string[]; tech: string[]; timeline: string; from: string }> = {
   web: {

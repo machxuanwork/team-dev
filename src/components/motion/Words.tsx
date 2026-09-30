@@ -2,14 +2,13 @@ import { cn } from "@/lib/utils"
 
 type Props = {
   text: string
-  /** Độ trễ bắt đầu (ms) */
+
   delay?: number
-  /** Khoảng cách giữa các chữ (ms) */
+
   step?: number
   className?: string
 }
 
-/** Hiện từng chữ, trượt lên từ sau mặt nạ. Chạy ngay khi tải trang (không cần JS), nội dung vẫn là văn bản thường cho SEO. */
 export function Words({ text, delay = 0, step = 70, className }: Props) {
   const words = text.split(" ")
   return (

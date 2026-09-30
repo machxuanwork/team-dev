@@ -2,10 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 
-/**
- * Hiển thị chỉ số như "+38%", "1.2s", "400+", "4.8★" và đếm lên khi cuộn tới.
- * Giá trị không đếm được (vd. "4 → 1") được hiển thị nguyên. Giá trị cuối luôn nằm trong HTML gốc.
- */
 export function AnimatedValue({ value, duration = 1600 }: { value: string; duration?: number }) {
   const m = /^([^\d]*)(\d+(?:\.\d+)?)(.*)$/.exec(value)
   const [prefix, numStr, suffix] = m && !value.includes("→") ? [m[1], m[2], m[3]] : ["", "", ""]

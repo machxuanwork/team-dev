@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils"
 
-/** Hình minh hoạ nhỏ, có chuyển động nhẹ cho từng dịch vụ. */
 export function ServiceVisual({ slug, className }: { slug: string; className?: string }) {
   const base = "relative h-28 overflow-hidden rounded-2xl bg-white/70 ring-1 ring-black/5 " + (className ?? "")
   switch (slug) {

@@ -1,7 +1,6 @@
 import { siteConfig } from "@/config/site"
 import { absoluteUrl, serializeJsonLd } from "@/lib/seo"
 
-/** Structured data cho toàn site: Organization + WebSite. Render một lần trong root layout. */
 export default function OrganizationSchema() {
   const jsonLd = {
     "@context": "https://schema.org",

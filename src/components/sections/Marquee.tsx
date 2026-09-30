@@ -1,6 +1,5 @@
 import { clients } from "@/data/content"
 
-/** Dải tên khách hàng chạy ngang. Danh sách được nhân đôi để vòng lặp liền mạch; bản sao ẩn với trình đọc màn hình. */
 export function ClientMarquee() {
   return (
     <section aria-label="Khách hàng đã tin tưởng" className="border-y border-border bg-white/50 py-8">

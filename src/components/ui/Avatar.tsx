@@ -9,10 +9,6 @@ const initials = (name: string) => {
 
 type Props = { name: string; tone?: Tone; image?: string; className?: string; compact?: boolean }
 
-/**
- * Ảnh đại diện. Chưa có ảnh thật → hiển thị monogram thiết kế (nền mesh + chữ cái đầu cỡ lớn), sang và không "giả người".
- * Có ảnh: truyền `image` (vd. "/team/khang.jpg") trong src/data/content.ts.
- */
 export function Avatar({ name, tone = "warm", image, className, compact }: Props) {
   const t = tones[tone]
   if (image) {

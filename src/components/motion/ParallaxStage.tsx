@@ -3,10 +3,6 @@
 import { useRef, type PointerEvent, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-/**
- * Vùng "sân khấu": các phần tử con có class `layer` + `--depth` sẽ trôi nhẹ theo con trỏ, tạo chiều sâu.
- * Chỉ bật với chuột (không ảnh hưởng thiết bị cảm ứng) và tự tắt khi người dùng chọn giảm chuyển động.
- */
 export function ParallaxStage({ children, className }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
 

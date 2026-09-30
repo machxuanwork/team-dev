@@ -9,7 +9,7 @@ export type ContactState = {
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export async function sendContact(_prev: ContactState, formData: FormData): Promise<ContactState> {
-  // Honeypot: người thật không thấy ô này, bot thì điền
+
   if (String(formData.get("website") ?? "").length > 0) return { status: "success" }
 
   const name = String(formData.get("name") ?? "").trim()
@@ -24,8 +24,6 @@ export async function sendContact(_prev: ContactState, formData: FormData): Prom
   if (message.length < 10) errors.message = "Hãy kể thêm một chút về dự án của bạn (ít nhất 10 ký tự)."
   if (Object.keys(errors).length) return { status: "error", errors, message: "Bạn kiểm tra lại các ô được đánh dấu nhé." }
 
-  // TODO: nối với dịch vụ gửi mail thật (Resend, SendGrid, SMTP…) hoặc CRM/Slack webhook.
-  // Hiện tại chỉ ghi log phía server để bạn thấy dữ liệu đi qua.
   console.info("[contact]", { name, email, company, budget, message })
 
   return { status: "success", message: "Cảm ơn bạn! Tụi mình sẽ phản hồi trong vòng 1 ngày làm việc." }

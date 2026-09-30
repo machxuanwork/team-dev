@@ -13,7 +13,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const pathname = usePathname()
-  // Menu mobile tự đóng khi đổi trang: lưu trang đã mở menu thay vì đồng bộ state trong effect
+
   const [openFor, setOpenFor] = useState<string | null>(null)
   const open = openFor === pathname
 
@@ -22,7 +22,7 @@ export function Header() {
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 12)
-      // Cuộn xuống đủ xa thì ẩn thanh điều hướng, cuộn lên là hiện lại
+
       if (Math.abs(y - last) > 8) {
         setHidden(y > 240 && y > last)
         last = y
@@ -33,7 +33,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Khoá cuộn nền khi mở menu mobile
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
     return () => {
@@ -89,7 +88,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Menu mobile */}
       <div
         id="mobile-menu"
         className={cn(

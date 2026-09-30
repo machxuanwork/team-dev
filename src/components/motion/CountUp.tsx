@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 
 type Props = { value: number; suffix?: string; duration?: number }
 
-/** Đếm số mượt khi cuộn tới. Giá trị cuối luôn có trong HTML ban đầu để SEO/no-JS vẫn đọc đúng. */
 export function CountUp({ value, suffix = "", duration = 1600 }: Props) {
   const ref = useRef<HTMLSpanElement>(null)
   const [n, setN] = useState(value)

@@ -4,7 +4,6 @@ import { Reveal } from "@/components/motion/Reveal"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { serializeJsonLd } from "@/lib/seo"
 
-/** Accordion dùng thẻ <details> gốc: nội dung luôn có trong HTML (tốt cho SEO), hoạt động cả khi tắt JS, hỗ trợ bàn phím sẵn. */
 export function Faq({ items = faqs, id = "hoi-dap" }: { items?: { q: string; a: string }[]; id?: string }) {
   const jsonLd = {
     "@context": "https://schema.org",

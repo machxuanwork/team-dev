@@ -4,7 +4,6 @@ import { absoluteUrl, serializeJsonLd } from "@/lib/seo"
 
 export type Crumb = { name: string; href: string }
 
-/** Breadcrumb hiển thị cho người dùng + dữ liệu BreadcrumbList cho Google (hiện đường dẫn ngay trên kết quả tìm kiếm). */
 export function Breadcrumbs({ items, visible = true }: { items: Crumb[]; visible?: boolean }) {
   const all: Crumb[] = [{ name: "Trang chủ", href: "/" }, ...items]
   const jsonLd = {

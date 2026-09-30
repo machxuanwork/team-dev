@@ -3,7 +3,6 @@ import { Words } from "@/components/motion/Words"
 
 type Props = { eyebrow: string; title: string; accent?: string; description?: string; crumbs?: Crumb[] }
 
-/** Phần đầu trang con: nền blob mềm, tiêu đề hiện từng chữ. */
 export function PageHero({ eyebrow, title, accent, description, crumbs }: Props) {
   return (
     <section className="relative overflow-hidden pt-36 pb-12 md:pt-48 md:pb-16">
