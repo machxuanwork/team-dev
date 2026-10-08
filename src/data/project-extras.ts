@@ -1,112 +1,93 @@
-import type { CoverVariant } from "@/components/ui/Cover"
-
 export type ProjectExtra = {
   client: string
-  services: string[]
-  duration: string
-  team: string
-  platform: string
+  focus: string[]
+  published: string
   highlights: { title: string; text: string }[]
-  screens: { variant: CoverVariant; caption: string; image?: string }[]
-  phases: { name: string; time: string; text: string }[]
-  quoteBy: { name: string; role: string }
+  deliverables: string[]
 }
 
+/** Dự án mẫu (concept) do DevTeam tự thiết kế để minh hoạ năng lực — thương hiệu và dữ liệu trong ảnh là giả định. */
+const client = "Thương hiệu giả định (dự án mẫu)"
+const published = "10/2026"
+
 export const projectExtras: Record<string, ProjectExtra> = {
-  "moc-lam-ecommerce": {
-    client: "Mộc Lam Furniture",
-    services: ["Thiết kế UI/UX", "Phát triển web", "Tối ưu SEO"],
-    duration: "10 tuần",
-    team: "5 người",
-    platform: "Web · Mobile web",
+  "thien-phu-construction": {
+    client,
+    focus: ["Hồ sơ năng lực", "Dự án tiêu biểu", "Nhận báo giá"],
+    published,
     highlights: [
-      { title: "Xem thử nội thất bằng AR", text: "Khách đặt món đồ vào chính căn phòng của mình ngay trên điện thoại trước khi quyết định mua." },
-      { title: "Thanh toán còn 3 bước", text: "Bỏ bớt các trường thông tin không cần thiết, tự điền địa chỉ và ghi nhớ lựa chọn của khách." },
-      { title: "Ảnh tải gần như tức thì", text: "Ảnh sản phẩm dùng định dạng AVIF, tải theo nhu cầu và cache toàn cầu nên trang chủ hiển thị dưới 1,2 giây." },
+      { title: "Hồ sơ dự án có bộ lọc", text: "Mỗi công trình có trang riêng: quy mô, hạng mục, thời gian thi công và hình ảnh; lọc theo loại công trình để khách tìm đúng nhóm dự án họ quan tâm." },
+      { title: "Trang năng lực và chứng chỉ", text: "Nhân sự chủ chốt, thiết bị, chứng chỉ và quy trình an toàn lao động được trình bày rõ ràng, thay cho file hồ sơ năng lực dạng PDF." },
+      { title: "Biểu mẫu báo giá", text: "Biểu mẫu ngắn thu thập loại công trình, quy mô và khu vực; thông tin gửi thẳng về email và CRM của bộ phận kinh doanh." },
     ],
-    screens: [
-      { variant: "browser", caption: "Trang chủ và danh mục sản phẩm", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "phone", caption: "Trải nghiệm mua hàng trên điện thoại", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "dashboard", caption: "Trang quản lý đơn hàng cho nhân viên", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-    ],
-    phases: [
-      { name: "Khám phá", time: "1 tuần", text: "Phân tích hành vi khách hàng, tìm ra điểm khiến họ bỏ giỏ hàng." },
-      { name: "Thiết kế", time: "2 tuần", text: "Thiết kế lại luồng mua hàng và bộ thành phần giao diện." },
-      { name: "Xây dựng", time: "6 tuần", text: "Phát triển theo sprint, demo mỗi hai tuần cho đội Mộc Lam." },
-      { name: "Ra mắt", time: "1 tuần", text: "Kiểm thử, chuyển dữ liệu từ hệ thống cũ và trực cùng đội trong ngày đầu." },
-    ],
-    quoteBy: { name: "Chị Lan Phương", role: "Founder, Mộc Lam" },
+    deliverables: ["Thiết kế giao diện desktop và mobile", "8 trang chính + trang chi tiết dự án", "Trang quản trị nội dung (CMS)", "Tối ưu SEO và tốc độ tải trang", "Tích hợp bản đồ và biểu mẫu báo giá"],
   },
-  "lua-vang-logistics": {
-    client: "Lúa Vàng Logistics",
-    services: ["Thiết kế sản phẩm", "Phát triển web app", "Hạ tầng cloud"],
-    duration: "14 tuần",
-    team: "6 người",
-    platform: "Web app",
+  "la-sen-spa": {
+    client,
+    focus: ["Đặt lịch", "Liệu trình", "Nhắc lịch"],
+    published,
     highlights: [
-      { title: "Bản đồ theo thời gian thực", text: "Vị trí hơn 400 xe cập nhật mỗi vài giây, mượt kể cả khi mở hàng trăm điểm cùng lúc." },
-      { title: "Cảnh báo trễ chuyến chủ động", text: "Hệ thống dự đoán chuyến có nguy cơ trễ và báo cho điều phối viên trước khi khách hàng phàn nàn." },
-      { title: "Báo cáo hiệu suất tự động", text: "Thống kê quãng đường, thời gian dừng và mức tiêu hao theo tài xế, xuất ra Excel chỉ với một cú bấm." },
+      { title: "Đặt lịch theo khung giờ còn trống", text: "Khách chọn dịch vụ, ngày và giờ; hệ thống chỉ hiển thị khung giờ còn trống theo kỹ thuật viên và phòng." },
+      { title: "Trang liệu trình rõ ràng", text: "Mỗi liệu trình có mô tả, thời lượng, các bước thực hiện và lưu ý, giúp khách mới yên tâm trước khi đặt." },
+      { title: "Đặt cọc và nhắc lịch", text: "Tuỳ chọn đặt cọc để giữ chỗ; tin nhắc lịch qua SMS và Zalo giúp giảm tình trạng khách quên hẹn." },
     ],
-    screens: [
-      { variant: "map", caption: "Bản đồ điều phối thời gian thực", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "dashboard", caption: "Bảng chỉ số vận hành", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "calendar", caption: "Lịch chuyến và phân công tài xế", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-    ],
-    phases: [
-      { name: "Khám phá", time: "2 tuần", text: "Theo chân điều phối viên một ngày để hiểu quy trình thực tế." },
-      { name: "Thiết kế", time: "3 tuần", text: "Thiết kế giao diện tối ưu cho việc theo dõi lâu, ít mỏi mắt." },
-      { name: "Xây dựng", time: "8 tuần", text: "Backend xử lý luồng GPS, giao diện realtime và hệ thống cảnh báo." },
-      { name: "Ra mắt", time: "1 tuần", text: "Chạy song song với hệ thống cũ một tuần trước khi chuyển hẳn." },
-    ],
-    quoteBy: { name: "Anh Quang Huy", role: "Giám đốc vận hành, Lúa Vàng" },
+    deliverables: ["Thiết kế giao diện tông màu thương hiệu", "Trang dịch vụ, liệu trình, bảng giá", "Luồng đặt lịch và đặt cọc", "Trang quản trị lịch cho lễ tân", "Tích hợp SMS và Zalo"],
   },
-  "bep-nha-app": {
-    client: "Bếp Nhà",
-    services: ["Thiết kế UI/UX", "Ứng dụng di động", "Backend & thanh toán"],
-    duration: "12 tuần",
-    team: "6 người",
-    platform: "iOS · Android",
+  "bep-lang-restaurant": {
+    client,
+    focus: ["Thực đơn số", "Đặt bàn", "Đa chi nhánh"],
+    published,
     highlights: [
-      { title: "Đặt món chỉ với 2 chạm", text: "Từ màn hình chính tới xác nhận đơn hàng chưa tới 10 giây, thân thiện với cả người lớn tuổi." },
-      { title: "Theo dõi đơn theo thời gian thực", text: "Thông báo đẩy từng bước: bếp nhận đơn, đang nấu, đang giao, kèm thời gian dự kiến chính xác." },
-      { title: "Chịu tải giờ cao điểm", text: "Hệ thống được kiểm thử chịu tải với gấp 5 lần lượng đơn dự kiến, chạy êm vào khung giờ ăn trưa." },
+      { title: "Thực đơn dạng dữ liệu", text: "Món ăn có ảnh, mô tả, nhóm món và nhãn như cay, chay; cập nhật một lần là hiển thị trên toàn bộ website." },
+      { title: "Đặt bàn trong vài chạm", text: "Chọn ngày, giờ và số khách; nhà hàng nhận thông báo, khách nhận xác nhận qua email hoặc tin nhắn." },
+      { title: "Trang riêng cho từng chi nhánh", text: "Bản đồ, giờ mở cửa, số điện thoại bấm gọi ngay và ưu đãi riêng theo từng địa điểm." },
     ],
-    screens: [
-      { variant: "phone", caption: "Trang chủ và luồng đặt món", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "calendar", caption: "Lịch đặt món theo tuần", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-      { variant: "dashboard", caption: "Trang quản lý cho từng gian bếp", image: "https://vinaweb.net/upload/cdn/images/mau-website-ban-hang-dep-hai-phong-1(1).jpg" },
-    ],
-    phases: [
-      { name: "Khám phá", time: "1 tuần", text: "Trò chuyện với các gia đình nấu ăn và người đặt món để tìm ra nhu cầu thật." },
-      { name: "Thiết kế", time: "3 tuần", text: "Giao diện chữ lớn, màu ấm, thử nghiệm với người dùng nhiều lứa tuổi." },
-      { name: "Xây dựng", time: "7 tuần", text: "Ứng dụng React Native, backend NestJS và tích hợp cổng thanh toán nội địa." },
-      { name: "Ra mắt", time: "1 tuần", text: "Phát hành thử trong một khu dân cư, sửa nhanh theo phản hồi rồi mở rộng." },
-    ],
-    quoteBy: { name: "Chị Thảo Vy", role: "CEO, Bếp Nhà" },
+    deliverables: ["Thiết kế giao diện ưu tiên điện thoại", "Thực đơn trực tuyến có lọc nhóm món", "Luồng đặt bàn và thông báo", "Trang chi nhánh và ưu đãi", "Tối ưu ảnh và tốc độ tải"],
   },
-  "so-tay-clinic": {
-    client: "Sổ Tay Clinic",
-    services: ["Thiết kế sản phẩm", "Phát triển web app", "Bảo mật & tuân thủ"],
-    duration: "16 tuần",
-    team: "7 người",
-    platform: "Web app · Cổng bệnh nhân",
+  "chamcong-360": {
+    client,
+    focus: ["GPS · FaceID · QR", "Ca làm việc", "Bảng lương"],
+    published,
     highlights: [
-      { title: "Đặt lịch không trùng", text: "Hệ thống kiểm tra lịch của bác sĩ, phòng khám và trang thiết bị trước khi xác nhận, chấm dứt tình trạng trùng lịch." },
-      { title: "Hồ sơ mã hoá và phân quyền", text: "Mỗi vai trò chỉ thấy đúng phần thông tin cần thiết, mọi lượt truy cập đều được ghi nhật ký." },
-      { title: "Nhắc lịch tự động", text: "Tin nhắn nhắc lịch qua SMS và Zalo giúp giảm hẹn bỏ và giữ lịch khám luôn đầy đặn." },
+      { title: "Chấm công đa hình thức", text: "Nhân viên chấm công bằng GPS trong vùng cho phép, nhận diện khuôn mặt hoặc quét mã QR tại văn phòng." },
+      { title: "Ca làm và quy tắc linh hoạt", text: "Cấu hình ca sáng, ca chiều, ca xoay; quy định đi muộn, về sớm, làm thêm giờ cho từng nhóm nhân viên." },
+      { title: "Nghỉ phép và phê duyệt", text: "Nhân viên gửi đơn trên điện thoại, quản lý duyệt nhanh; số ngày phép còn lại luôn được cập nhật." },
+      { title: "Báo cáo và xuất lương", text: "Giờ công tự tổng hợp theo kỳ lương, xuất Excel theo mẫu để bộ phận kế toán tính lương." },
     ],
-    screens: [
-      { variant: "calendar", caption: "Lịch hẹn của bác sĩ", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
-      { variant: "dashboard", caption: "Tổng quan phòng khám", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
-      { variant: "browser", caption: "Cổng đặt lịch cho bệnh nhân", image: "https://nguyenhoanghuy.shop/assets/projects/tiktok/promo_hero_banner_1787800513204.jpg" },
+    deliverables: ["Web quản trị cho nhân sự", "Ứng dụng di động iOS và Android", "Phân quyền theo vai trò và phòng ban", "Báo cáo giờ công, đi muộn, nghỉ phép", "Xuất dữ liệu Excel phục vụ tính lương"],
+  },
+  "bep-truong-pos": {
+    client,
+    focus: ["Sơ đồ bàn", "Màn hình bếp", "Thanh toán"],
+    published,
+    highlights: [
+      { title: "Sơ đồ bàn thời gian thực", text: "Ba trạng thái trực quan: trống, đang phục vụ, chờ thanh toán; cập nhật tức thì trên mọi thiết bị." },
+      { title: "Gọi món bằng điện thoại", text: "Phục vụ chọn món tại bàn, gửi order thẳng tới màn hình bếp, hạn chế nhầm món." },
+      { title: "Thanh toán linh hoạt", text: "Gộp hoặc tách hoá đơn theo bàn, áp dụng khuyến mãi và nhiều hình thức thanh toán." },
+      { title: "Kho và định lượng", text: "Mỗi món gắn công thức nguyên liệu, tự trừ kho khi bán và cảnh báo khi sắp hết." },
     ],
-    phases: [
-      { name: "Khám phá", time: "2 tuần", text: "Quan sát quy trình tiếp đón và khám tại 3 phòng khám." },
-      { name: "Thiết kế", time: "3 tuần", text: "Thiết kế luồng cho lễ tân, bác sĩ và bệnh nhân, mỗi nhóm một trải nghiệm riêng." },
-      { name: "Xây dựng", time: "10 tuần", text: "Phát triển hệ thống, mã hoá dữ liệu và tích hợp nhắc lịch." },
-      { name: "Ra mắt", time: "1 tuần", text: "Triển khai lần lượt từng phòng khám, đào tạo nhân viên tại chỗ." },
+    deliverables: ["Web POS cho thu ngân và quản lý", "Giao diện gọi món cho điện thoại và máy tính bảng", "Màn hình bếp (KDS)", "Quản lý thực đơn, kho và định lượng", "Báo cáo doanh thu theo ca, ngày, tháng"],
+  },
+  "hat-vang-cafe-pos": {
+    client,
+    focus: ["Bán nhanh", "Kho nguyên liệu", "Báo cáo ca"],
+    published,
+    highlights: [
+      { title: "Màn hình bán hàng dạng lưới", text: "Món có ảnh, lọc theo nhóm, thêm vào đơn bằng một chạm; thiết kế cho giờ cao điểm." },
+      { title: "Định lượng tự trừ kho", text: "Công thức từng món gắn với nguyên liệu; hệ thống trừ kho khi bán và báo sắp hết." },
+      { title: "Báo cáo trên điện thoại", text: "Chủ quán xem doanh thu theo giờ, theo ca và theo chi nhánh ngay trên điện thoại." },
     ],
-    quoteBy: { name: "Bác sĩ Minh Châu", role: "Giám đốc chuyên môn, Sổ Tay Clinic" },
+    deliverables: ["Web POS cho quầy thu ngân", "Ứng dụng báo cáo cho chủ quán", "Quản lý thực đơn, kho, nhà cung cấp", "Quản lý nhiều chi nhánh", "In hoá đơn và tem ly"],
+  },
+  "cau-noi-portal-cms": {
+    client,
+    focus: ["CMS", "Phê duyệt", "Phân quyền"],
+    published,
+    highlights: [
+      { title: "Soạn bài và lên lịch xuất bản", text: "Trình soạn thảo trực quan, chuyên mục, thư viện ảnh và lịch xuất bản cho bộ phận truyền thông." },
+      { title: "Luồng phê duyệt nhiều cấp", text: "Bài viết đi từ biên tập viên đến trưởng phòng và ban giám đốc, mỗi bước đều có lịch sử." },
+      { title: "Portal cho nhân viên", text: "Tin nổi bật, lối tắt tới nghỉ phép, chấm công, phiếu lương và danh sách việc cần duyệt trên một màn hình." },
+    ],
+    deliverables: ["CMS quản trị nội dung", "Portal nhân viên responsive", "Phân quyền theo vai trò, phòng ban", "Đăng nhập một lần (SSO)", "Nhật ký thao tác và lịch sử phiên bản"],
   },
 }

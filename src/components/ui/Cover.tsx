@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 export type CoverVariant = "browser" | "phone" | "dashboard" | "map" | "calendar" | "editorial"
 
-type Props = { title: string; tone?: Tone; image?: string; variant?: CoverVariant; className?: string; label?: string }
+type Props = { title: string; tone?: Tone; image?: string; alt?: string; variant?: CoverVariant; className?: string; label?: string }
 
 function Chrome({ children, url = "khachhang.vn" }: { children: React.ReactNode; url?: string }) {
   return (
@@ -23,10 +23,10 @@ function Chrome({ children, url = "khachhang.vn" }: { children: React.ReactNode;
   )
 }
 
-export function Cover({ title, tone = "warm", image, variant = "browser", className, label }: Props) {
+export function Cover({ title, tone = "warm", image, alt, variant = "browser", className, label }: Props) {
   const t = tones[tone]
   if (image) {
-    return <Image src={image} alt={`Ảnh dự án ${title}`} fill sizes="(min-width: 1024px) 50vw, 100vw" className={cn("object-cover", className)} />
+    return <Image src={image} alt={alt ?? `Ảnh dự án ${title}`}fill sizes="(min-width: 1024px) 50vw, 100vw" className={cn("object-cover", className)} />
   }
 
   return (

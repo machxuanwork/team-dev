@@ -9,10 +9,13 @@ import { LinkButton } from "@/components/ui/link-button"
 import { cn } from "@/lib/utils"
 
 export const coverVariant: Record<(typeof projects)[number]["slug"], CoverVariant> = {
-  "moc-lam-ecommerce": "browser",
-  "lua-vang-logistics": "map",
-  "bep-nha-app": "phone",
-  "so-tay-clinic": "calendar",
+  "thien-phu-construction": "browser",
+  "la-sen-spa": "browser",
+  "bep-lang-restaurant": "browser",
+  "chamcong-360": "dashboard",
+  "bep-truong-pos": "dashboard",
+  "hat-vang-cafe-pos": "dashboard",
+  "cau-noi-portal-cms": "dashboard",
 }
 
 type Project = (typeof projects)[number]
@@ -25,7 +28,7 @@ export function ProjectCard({ p, dark = false, index = 0 }: { p: Project; dark?:
           <TiltCard max={4}>
             <div className={cn("relative aspect-[4/3] overflow-hidden rounded-3xl ring-1", dark ? "ring-white/10" : "ring-black/5")}>
               <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]">
-                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} />
+                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} alt={`Ảnh dự án mẫu ${p.name}`} />
               </div>
               <span className="absolute top-5 right-5 grid size-12 translate-y-2 scale-90 place-items-center rounded-full bg-background text-ink opacity-0 shadow-lg transition-all duration-500 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-visible:opacity-100">
                 <ArrowUpRight className="size-5" aria-hidden />
@@ -61,13 +64,13 @@ export function Projects() {
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading
             tone="dark"
-            eyebrow="Dự án chọn lọc"
+            eyebrow="Dự án mẫu"
             title={
               <>
-                Những sản phẩm <span className="italic text-brand">đang chạy thật</span>
+                Website &amp; phần mềm <span className="italic text-brand">cho doanh nghiệp Việt</span>
               </>
             }
-            description="Vài dự án tụi mình tự hào. Mỗi dự án đều bắt đầu từ một vấn đề cụ thể và kết thúc bằng con số đo được."
+            description="Website giới thiệu cho xây dựng, spa, nhà hàng và phần mềm quản lý chấm công, nhà hàng, quán cà phê, CMS — các dự án mẫu do chúng tôi thiết kế."
           />
           <LinkButton href="/projects" variant="light" arrow>
             Xem tất cả dự án
@@ -75,7 +78,7 @@ export function Projects() {
         </div>
 
         <ul className="mt-14 grid gap-x-8 gap-y-14 md:grid-cols-2">
-          {projects.map((p, i) => (
+          {projects.slice(0, 4).map((p, i) => (
             <ProjectCard key={p.slug} p={p} dark index={i} />
           ))}
         </ul>

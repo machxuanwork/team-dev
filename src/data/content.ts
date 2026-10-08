@@ -108,84 +108,144 @@ export const services = [
 
 export const projects = [
   {
-    slug: "moc-lam-ecommerce",
-    name: "Mộc Lam",
-    category: "Thương mại điện tử",
-    year: "2025",
-    summary: "Cửa hàng nội thất thủ công, tải nhanh gấp 3 và tăng đơn hàng ngay quý đầu.",
+    slug: "thien-phu-construction",
+    group: "website",
+    name: "Thiên Phú Xây Dựng",
+    category: "Website giới thiệu · Xây dựng",
+    year: "2026",
+    summary: "Website giới thiệu năng lực tổng thầu xây dựng: lĩnh vực hoạt động, hồ sơ dự án tiêu biểu và biểu mẫu nhận báo giá.",
     challenge:
-      "Mộc Lam là xưởng nội thất thủ công có sản phẩm rất đẹp nhưng website cũ tải chậm, ảnh nặng và thanh toán rối. Phần lớn khách bỏ đi trước khi kịp thêm vào giỏ hàng.",
+      "Doanh nghiệp xây dựng thường có hồ sơ năng lực ở dạng file PDF rời rạc, khách hàng khó đánh giá uy tín trước khi liên hệ. Website cần thể hiện rõ lĩnh vực hoạt động, dự án tiêu biểu, chứng chỉ, quy trình an toàn lao động và một đường dẫn ngắn tới yêu cầu báo giá.",
     solution:
-      "Chúng tôi dựng lại toàn bộ bằng Next.js, tối ưu ảnh sản phẩm, viết lại luồng thanh toán còn 3 bước và thêm công cụ xem sản phẩm trong không gian thực (AR) cho các món bán chạy.",
+      "Cấu trúc nhiều tầng: trang chủ với hero và các lĩnh vực; trang dự án có bộ lọc theo loại công trình; trang năng lực gồm nhân sự, thiết bị, chứng chỉ; mục tin tức; biểu mẫu báo giá gửi thẳng về email và CRM. Dựng bằng Next.js, tối ưu SEO theo từ khoá ngành và khu vực.",
     results: [
-      { value: "+38%", label: "tỷ lệ chuyển đổi" },
-      { value: "1.2s", label: "thời gian tải trang chính" },
-      { value: "-52%", label: "giỏ hàng bị bỏ dở" },
+      { value: "8", label: "trang chính, hiển thị tốt trên máy tính và điện thoại" },
+      { value: "4", label: "lĩnh vực hoạt động trình bày riêng" },
+      { value: "1", label: "biểu mẫu báo giá nối thẳng email và CRM" },
     ],
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Vercel"],
-    tone: "warm",
-    image: "/projects/moc-lam.png" as string | undefined,
-    testimonial: "Đội ngũ hiểu việc kinh doanh của tụi mình hơn cả kỳ vọng.",
-  },
-  {
-    slug: "lua-vang-logistics",
-    name: "Lúa Vàng Logistics",
-    category: "Hệ thống quản trị",
-    year: "2025",
-    summary: "Bảng điều khiển theo dõi 400+ xe theo thời gian thực cho công ty vận tải.",
-    challenge:
-      "Điều phối viên phải mở 4 phần mềm khác nhau để biết xe đang ở đâu, chở gì và có trễ giờ không. Dữ liệu chậm, sai lệch và không ai tin hoàn toàn.",
-    solution:
-      "Một dashboard duy nhất hiển thị vị trí xe realtime, cảnh báo trễ chuyến tự động và báo cáo hiệu suất tài xế. Backend Go xử lý hàng nghìn tín hiệu GPS mỗi phút.",
-    results: [
-      { value: "400+", label: "xe theo dõi cùng lúc" },
-      { value: "-30%", label: "chuyến giao trễ" },
-      { value: "4 → 1", label: "phần mềm cần dùng" },
-    ],
-    tags: ["React", "Go", "WebSocket", "AWS"],
-    tone: "green",
-    image: "/projects/lua-vang.png" as string | undefined,
-    testimonial: "Sáng nào tụi mình cũng mở nó đầu tiên.",
-  },
-  {
-    slug: "bep-nha-app",
-    name: "Bếp Nhà",
-    category: "Ứng dụng di động",
-    year: "2024",
-    summary: "App đặt cơm nhà nấu giao trong khu dân cư, 50.000 lượt tải sau 6 tháng.",
-    challenge:
-      "Bếp Nhà kết nối những gia đình nấu ăn ngon với hàng xóm quanh đó. Họ cần một app thân thiện với cả người lớn tuổi và chạy ổn định giờ cao điểm bữa trưa.",
-    solution:
-      "App React Native với luồng đặt món 2 chạm, thông báo đơn theo thời gian thực và cổng thanh toán nội địa. Giao diện chữ lớn, màu ấm, dễ dùng với mọi lứa tuổi.",
-    results: [
-      { value: "50k", label: "lượt tải sau 6 tháng" },
-      { value: "4.8★", label: "đánh giá trên store" },
-      { value: "99.9%", label: "uptime giờ cao điểm" },
-    ],
-    tags: ["React Native", "NestJS", "Firebase", "VNPay"],
-    tone: "sun",
-    image: "/projects/bep-nha.png" as string | undefined,
-    testimonial: "Ba mẹ mình 60 tuổi cũng tự đặt món được.",
-  },
-  {
-    slug: "so-tay-clinic",
-    name: "Sổ Tay Clinic",
-    category: "Y tế số",
-    year: "2024",
-    summary: "Hệ thống đặt lịch và hồ sơ bệnh án điện tử cho chuỗi 6 phòng khám.",
-    challenge:
-      "Lịch hẹn ghi tay và nhắn Zalo khiến phòng khám thường xuyên trùng lịch. Hồ sơ bệnh nhân nằm rải rác, khó tra cứu và tiềm ẩn rủi ro về bảo mật.",
-    solution:
-      "Cổng đặt lịch cho bệnh nhân, phân quyền cho bác sĩ và lễ tân, hồ sơ mã hoá và nhật ký truy cập đầy đủ. Tích hợp nhắc lịch qua SMS, Zalo.",
-    results: [
-      { value: "-70%", label: "lịch hẹn bị trùng" },
-      { value: "6", label: "phòng khám đang dùng" },
-      { value: "100%", label: "hồ sơ được mã hoá" },
-    ],
-    tags: ["Next.js", "NestJS", "PostgreSQL", "Docker"],
+    tags: ["Next.js", "CMS", "SEO", "Google Maps"],
     tone: "blue",
-    image: "/projects/so-tay-clinic.png" as string | undefined,
-    testimonial: "Lễ tân đỡ áp lực hẳn, bệnh nhân cũng hài lòng hơn.",
+    image: "/projects/thien-phu-construction.png" as string | undefined,
+  },
+  {
+    slug: "la-sen-spa",
+    group: "website",
+    name: "Lá Sen Spa",
+    category: "Website giới thiệu · Spa & Wellness",
+    year: "2026",
+    summary: "Website spa với trang dịch vụ, bảng liệu trình và đặt lịch trực tuyến theo dịch vụ và khung giờ còn trống.",
+    challenge:
+      "Spa phụ thuộc nhiều vào lịch hẹn nhưng thường nhận đặt lịch qua tin nhắn, dễ trùng giờ và khó nhắc khách. Khách mới lại cần thấy ngay dịch vụ, liệu trình, thời lượng và không gian trước khi quyết định.",
+    solution:
+      "Giao diện nhẹ nhàng, ưu tiên hình ảnh và nội dung từng liệu trình. Luồng đặt lịch ba bước: chọn dịch vụ, chọn khung giờ còn trống, xác nhận (có thể đặt cọc). Trang quản trị cho lễ tân xem lịch theo ngày và theo kỹ thuật viên, kèm nhắc lịch tự động.",
+    results: [
+      { value: "3", label: "bước để đặt một lịch hẹn" },
+      { value: "6", label: "trang chính: dịch vụ, liệu trình, bảng giá, đặt lịch…" },
+      { value: "2", label: "kênh nhắc lịch: SMS và Zalo" },
+    ],
+    tags: ["Next.js", "Đặt lịch", "Thanh toán cọc", "Zalo"],
+    tone: "warm",
+    image: "/projects/la-sen-spa.png" as string | undefined,
+  },
+  {
+    slug: "bep-lang-restaurant",
+    group: "website",
+    name: "Bếp Làng",
+    category: "Website giới thiệu · Nhà hàng",
+    year: "2026",
+    summary: "Website nhà hàng món Việt với thực đơn có hình, đặt bàn trực tuyến theo giờ và số khách, trang ưu đãi theo mùa.",
+    challenge:
+      "Khách thường tìm nhà hàng trên điện thoại ngay trước bữa ăn: họ cần xem thực đơn, địa chỉ, giờ mở cửa và đặt bàn trong vài chạm. Thực đơn dạng ảnh chụp hay file PDF vừa khó đọc vừa nặng, làm trang tải chậm.",
+    solution:
+      "Thực đơn dạng dữ liệu, lọc theo nhóm món, ảnh tối ưu tải nhanh. Luồng đặt bàn chọn ngày, giờ, số khách và gửi xác nhận cho nhà hàng. Mỗi chi nhánh có trang riêng với bản đồ, giờ mở cửa và số điện thoại bấm gọi ngay.",
+    results: [
+      { value: "3", label: "thông tin để đặt bàn: ngày, giờ, số khách" },
+      { value: "4", label: "nhóm món trên thực đơn trực tuyến" },
+      { value: "100%", label: "bố cục ưu tiên điện thoại (mobile-first)" },
+    ],
+    tags: ["Next.js", "Đặt bàn", "Thực đơn số", "Bản đồ"],
+    tone: "sun",
+    image: "/projects/bep-lang-restaurant.png" as string | undefined,
+  },
+  {
+    slug: "chamcong-360",
+    group: "software",
+    name: "ChấmCông 360",
+    category: "Phần mềm · Chấm công & nhân sự",
+    year: "2026",
+    summary: "Phần mềm quản lý chấm công và nhân sự: chấm công bằng GPS, FaceID hoặc QR, quản lý ca, nghỉ phép và xuất bảng lương.",
+    challenge:
+      "Chấm công bằng bảng tính hoặc sổ giấy dễ sai sót, khó kiểm soát đi muộn và gian lận hộ. Bộ phận nhân sự mất nhiều ngày cuối tháng để tổng hợp giờ công trước khi tính lương.",
+    solution:
+      "Ứng dụng di động cho nhân viên chấm công trong vùng địa lý cho phép bằng GPS, nhận diện khuôn mặt hoặc mã QR. Web quản trị cấu hình ca làm, quy tắc đi muộn, luồng duyệt nghỉ phép; báo cáo giờ công tự tổng hợp và xuất Excel phục vụ tính lương.",
+    results: [
+      { value: "3", label: "hình thức chấm công: GPS, FaceID, QR" },
+      { value: "4", label: "phân hệ: chấm công, ca làm, nghỉ phép, bảng lương" },
+      { value: "2", label: "nền tảng: web quản trị và ứng dụng di động" },
+    ],
+    tags: ["React", "NestJS", "PostgreSQL", "React Native"],
+    tone: "blue",
+    image: "/projects/chamcong-360.png" as string | undefined,
+  },
+  {
+    slug: "bep-truong-pos",
+    group: "software",
+    name: "Bếp Trưởng POS",
+    category: "Phần mềm · Quản lý nhà hàng",
+    year: "2026",
+    summary: "Phần mềm quản lý nhà hàng: sơ đồ bàn, gọi món bằng điện thoại, màn hình bếp, thanh toán và báo cáo.",
+    challenge:
+      "Nhà hàng đông khách cần phối hợp nhịp nhàng giữa phục vụ, bếp và thu ngân. Ghi order bằng giấy dễ nhầm món, bếp không nắm được thứ tự ưu tiên và thu ngân tính tiền chậm vào giờ cao điểm.",
+    solution:
+      "Sơ đồ bàn theo thời gian thực với ba trạng thái. Nhân viên gọi món trên điện thoại hoặc máy tính bảng, order gửi thẳng tới màn hình bếp. Thu ngân gộp hoặc tách hoá đơn theo bàn; kho nguyên liệu trừ theo định lượng món.",
+    results: [
+      { value: "3", label: "trạng thái bàn: trống, đang phục vụ, chờ thanh toán" },
+      { value: "4", label: "phân hệ: sơ đồ bàn, gọi món, bếp, kho" },
+      { value: "1", label: "luồng order từ bàn đến bếp, không cần ghi giấy" },
+    ],
+    tags: ["Next.js", "NestJS", "WebSocket", "PostgreSQL"],
+    tone: "sun",
+    image: "/projects/bep-truong-pos.png" as string | undefined,
+  },
+  {
+    slug: "hat-vang-cafe-pos",
+    group: "software",
+    name: "Hạt Vàng Coffee POS",
+    category: "Phần mềm · Quản lý quán cà phê",
+    year: "2026",
+    summary: "Phần mềm bán hàng và quản lý quán cà phê: màn hình bán nhanh, kho nguyên liệu theo định lượng và báo cáo doanh thu theo ca.",
+    challenge:
+      "Quán cà phê có số đơn lớn, giá trị mỗi đơn nhỏ nên mọi thao tác phải nhanh. Chủ quán lại cần biết món nào bán chạy, nguyên liệu nào sắp hết và doanh thu từng ca mà không phải ngồi tổng hợp thủ công.",
+    solution:
+      "Màn hình bán hàng dạng lưới món có ảnh, thêm món một chạm, thanh toán tiền mặt hoặc mã QR. Mỗi món gắn công thức định lượng để tự trừ kho và cảnh báo sắp hết. Báo cáo theo giờ, ca và chi nhánh xem được ngay trên điện thoại.",
+    results: [
+      { value: "1", label: "chạm để thêm món vào đơn" },
+      { value: "2", label: "cách thanh toán trên màn hình: tiền mặt, QR/thẻ" },
+      { value: "3", label: "báo cáo: theo giờ, theo ca, theo chi nhánh" },
+    ],
+    tags: ["React", "NestJS", "PostgreSQL", "Báo cáo"],
+    tone: "warm",
+    image: "/projects/hat-vang-cafe-pos.png" as string | undefined,
+  },
+  {
+    slug: "cau-noi-portal-cms",
+    group: "software",
+    name: "Cầu Nối Portal & CMS",
+    category: "Phần mềm · Cổng nội bộ & CMS",
+    year: "2026",
+    summary: "Cổng thông tin nội bộ và hệ quản trị nội dung: đăng tin, phê duyệt nhiều cấp, phân quyền và lối tắt tới các nghiệp vụ hằng ngày.",
+    challenge:
+      "Thông báo nội bộ rải rác qua nhóm chat và email nên nhân viên dễ bỏ sót, còn bộ phận truyền thông không biết ai đã duyệt gì. Doanh nghiệp cần một nơi tập trung để đăng tin, duyệt bài và truy cập nhanh các ứng dụng nội bộ.",
+    solution:
+      "CMS có trình soạn thảo, chuyên mục, lịch xuất bản và luồng phê duyệt nhiều cấp. Portal cho nhân viên hiển thị tin nổi bật, lối tắt tới nghỉ phép, chấm công, phiếu lương và danh sách việc cần duyệt. Phân quyền theo vai trò và phòng ban, đăng nhập một lần (SSO).",
+    results: [
+      { value: "3", label: "cấp phê duyệt: biên tập, trưởng phòng, ban giám đốc" },
+      { value: "6", label: "lối tắt nghiệp vụ trên portal nhân viên" },
+      { value: "1", label: "tài khoản đăng nhập một lần cho mọi ứng dụng" },
+    ],
+    tags: ["Next.js", "NestJS", "PostgreSQL", "SSO"],
+    tone: "green",
+    image: "/projects/cau-noi-portal-cms.png" as string | undefined,
   },
 ] as const
 
@@ -343,44 +403,21 @@ export const team = [
     image: undefined as string | undefined,
   },
   {
-    name: "Lê Quốc Bảo",
-    role: "Senior Backend Engineer",
-    bio: "Chuyên hệ thống chịu tải cao và cơ sở dữ liệu. Người mà cả team gọi khi server \"có vẻ hơi lạ\".",
+    name: "Đăng Công Huynh",
+    role: "Fullstack Developer",
+    bio: "Thích đào sâu vào hiệu năng và cơ sở dữ liệu, nhưng vẫn tự tay chỉnh giao diện khi cần. Không ngại nhận một tính năng từ lúc chỉ là ý tưởng tới lúc chạy thật trên production.",
     tone: "blue",
-    links: { github: "#" },
+    links: { linkedin: "#", github: "#" },
     image: undefined as string | undefined,
   },
   {
-    name: "Phạm Ngọc Anh",
-    role: "Frontend Engineer",
-    bio: "Ám ảnh với từng pixel và từng mili-giây. Hay chỉnh animation đến khi mượt mới chịu dừng.",
-    tone: "sun",
-    links: { github: "#", linkedin: "#" },
-    image: undefined as string | undefined,
-  },
-  {
-    name: "Đỗ Hoàng Long",
-    role: "Mobile Engineer",
-    bio: "Đã đưa hơn 15 ứng dụng lên App Store và Google Play. Luôn mang theo đủ loại điện thoại để test.",
+    name: "Mai Thành Hải Quân",
+    role: "Fullstack Developer",
+    bio: "Quen với việc chuyển qua lại giữa frontend và backend trong cùng một buổi làm việc. Viết test trước khi viết tính năng, và hiếm khi để lại một đoạn code không ai hiểu nổi.",
     tone: "warm",
-    links: { github: "#" },
+    links: { linkedin: "#", github: "#" },
     image: undefined as string | undefined,
   },
-  {
-    name: "Vũ Thanh Mai",
-    role: "Project Manager & QA",
-    bio: "Người giữ nhịp cho cả dự án. Tỉ mỉ, điềm tĩnh, và có thể tìm ra lỗi mà không ai nghĩ tới.",
-    tone: "green",
-    links: { linkedin: "#" },
-    image: undefined as string | undefined,
-  },
-]
-
-export const milestones = [
-  { year: "2019", title: "Bắt đầu từ căn phòng nhỏ", text: "Ba người bạn cũ nghỉ việc công ty lớn để làm phần mềm theo cách mình tin. Dự án đầu tiên là website cho một quán cà phê quen." },
-  { year: "2021", title: "Thêm mảng mobile", text: "Ra mắt ứng dụng di động đầu tiên và mở rộng team lên 10 người." },
-  { year: "2023", title: "Văn phòng mới, khách hàng mới", text: "Làm việc với khách hàng ở Singapore và Úc. Đặt ra chuẩn code review và quy trình QA cho toàn team." },
-  { year: "2025", title: "60+ dự án, vẫn nhỏ và tỉ mỉ", text: "Chúng tôi chủ động giữ team gọn để mỗi dự án đều được chăm chút như sản phẩm của chính mình." },
 ]
 
 export const serviceDetails: Record<string, { deliverables: string[]; tech: string[]; timeline: string; from: string }> = {
@@ -388,37 +425,37 @@ export const serviceDetails: Record<string, { deliverables: string[]; tech: stri
     deliverables: ["Thiết kế UI/UX + prototype", "Website chuẩn SEO, tốc độ cao", "Trang quản trị nội dung (CMS)", "Tích hợp thanh toán, CRM, email", "Hướng dẫn sử dụng & tài liệu kỹ thuật"],
     tech: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
     timeline: "3 – 12 tuần",
-    from: "từ 45 triệu",
+    from: "Báo giá theo yêu cầu",
   },
   mobile: {
     deliverables: ["Thiết kế theo chuẩn iOS/Android", "Ứng dụng React Native / Flutter", "Push notification, đăng nhập, thanh toán", "Đưa lên App Store & Google Play", "Theo dõi lỗi & phân tích người dùng"],
     tech: ["React Native", "Flutter", "Firebase", "NestJS"],
     timeline: "8 – 16 tuần",
-    from: "từ 150 triệu",
+    from: "Báo giá theo yêu cầu",
   },
   design: {
     deliverables: ["Nghiên cứu & phỏng vấn người dùng", "Wireframe → prototype tương tác", "Design system trên Figma", "Bộ nhận diện giao diện", "Bàn giao chuẩn cho dev"],
     tech: ["Figma", "FigJam", "Storybook", "Lottie"],
     timeline: "2 – 6 tuần",
-    from: "từ 25 triệu",
+    from: "Báo giá theo yêu cầu",
   },
   cloud: {
     deliverables: ["Thiết kế kiến trúc cloud", "CI/CD tự động, môi trường staging", "Giám sát, cảnh báo, sao lưu", "Rà soát & tối ưu chi phí", "Runbook xử lý sự cố"],
     tech: ["AWS", "Docker", "Terraform", "GitHub Actions"],
     timeline: "1 – 4 tuần",
-    from: "từ 20 triệu",
+    from: "Báo giá theo yêu cầu",
   },
   ai: {
     deliverables: ["Xác định bài toán đáng làm AI", "Chatbot / trợ lý tra cứu tài liệu", "Tích hợp vào sản phẩm sẵn có", "Đánh giá chất lượng & kiểm soát chi phí", "Bảo vệ dữ liệu riêng tư"],
     tech: ["OpenAI / Claude API", "LangChain", "pgvector", "Python"],
     timeline: "3 – 8 tuần",
-    from: "từ 60 triệu",
+    from: "Báo giá theo yêu cầu",
   },
   maintenance: {
     deliverables: ["Vá lỗi & cập nhật bảo mật", "Theo dõi uptime & hiệu năng 24/7", "Thêm tính năng nhỏ mỗi tháng", "Báo cáo tình trạng hằng tháng", "Kênh hỗ trợ ưu tiên"],
     tech: ["Sentry", "Grafana", "GitHub", "Slack"],
     timeline: "Theo tháng",
-    from: "từ 8 triệu/tháng",
+    from: "Báo giá theo yêu cầu",
   },
 }
 
@@ -446,13 +483,10 @@ export const benefits = [
   { icon: "sparkles" as IconName, title: "Thiết bị & môi trường tốt", text: "MacBook Pro, màn hình 4K, văn phòng thoáng và cà phê không giới hạn." },
 ]
 
-export const openings = [
-  { slug: "senior-frontend", title: "Senior Frontend Engineer", type: "Toàn thời gian", place: "TP.HCM / Hybrid", level: "Senior", tags: ["Next.js", "TypeScript", "Design System"], text: "Dẫn dắt phần giao diện cho các sản phẩm web của khách hàng, review code và kèm cặp các bạn trẻ." },
-  { slug: "backend-engineer", title: "Backend Engineer (Node.js / Go)", type: "Toàn thời gian", place: "TP.HCM / Hybrid", level: "Middle – Senior", tags: ["NestJS", "PostgreSQL", "AWS"], text: "Thiết kế API, cơ sở dữ liệu và hệ thống chịu tải cho các sản phẩm đang có người dùng thật." },
-  { slug: "product-designer", title: "Product Designer (UI/UX)", type: "Toàn thời gian", place: "TP.HCM / Remote", level: "Middle", tags: ["Figma", "Design System", "Research"], text: "Từ nghiên cứu người dùng tới giao diện hoàn chỉnh, làm việc sát cánh với kỹ sư ngay từ ngày đầu." },
-  { slug: "qa-engineer", title: "QA Engineer", type: "Toàn thời gian", place: "TP.HCM", level: "Junior – Middle", tags: ["Playwright", "Cypress", "Manual QA"], text: "Đảm bảo mỗi bản phát hành đều chất lượng bằng cả kiểm thử thủ công lẫn tự động." },
-  { slug: "intern-web", title: "Thực tập sinh Web Developer", type: "Thực tập", place: "TP.HCM", level: "Intern", tags: ["React", "JavaScript", "Học hỏi"], text: "Chương trình 3 tháng có mentor kèm 1-1, làm dự án thật và có cơ hội nhận offer chính thức." },
-]
+export type Opening = { slug: string; title: string; type: string; place: string; level: string; tags: string[]; text: string }
+
+/** Hiện tại chưa tuyển vị trí nào. Khi có đợt tuyển mới, thêm object vào đây theo đúng mẫu cũ (xem lịch sử file). */
+export const openings: Opening[] = []
 
 export const hiringSteps = [
   { step: "01", title: "Gửi hồ sơ", text: "CV hoặc GitHub/Portfolio đều được. Không cần thư xin việc dài dòng." },
@@ -460,3 +494,15 @@ export const hiringSteps = [
   { step: "03", title: "Bài trao đổi kỹ thuật", text: "Cùng giải một bài toán thực tế — không đố mẹo, không viết code trên bảng." },
   { step: "04", title: "Gặp đội ngũ & offer", text: "Bạn gặp những người sẽ làm việc cùng và nhận phản hồi trong 3 ngày làm việc." },
 ]
+
+const commons = (file: string) => `https://commons.wikimedia.org/wiki/File:${file}`
+
+/** Ảnh thật (Wikimedia Commons, giấy phép CC0) minh hoạ cho từng dịch vụ. */
+export const serviceImages: Record<string, { src: string; alt: string; author: string; license: string; url: string }> = {
+  web: { src: "/services/web.jpg", alt: "Lập trình viên làm việc trên máy iMac", author: "Lee Campbell", license: "CC0", url: commons("Developer_working_on_an_iMac_(Unsplash).jpg") },
+  mobile: { src: "/services/mobile.jpg", alt: "Một phụ nữ dùng điện thoại thông minh tại Việt Nam", author: "Tony Lam Hoang", license: "CC0", url: commons("Vietnam_woman_on_smartphone_(Unsplash).jpg") },
+  design: { src: "/services/design.jpg", alt: "Bàn làm việc của designer với hai màn hình", author: "Lee Campbell", license: "CC0", url: commons("Designer%27s_two-screen_setup_(Unsplash).jpg") },
+  cloud: { src: "/services/cloud.jpg", alt: "Mặt sau thiết bị máy chủ trong tủ rack", author: "Thomas Kvistholt", license: "CC0", url: commons("Beautiful_technology_(Unsplash).jpg") },
+  ai: { src: "/services/ai.jpg", alt: "Những dòng mã nguồn nhiều màu trên màn hình", author: "Ilya Pavlov", license: "CC0", url: commons("Colorful_lines_of_code_(Unsplash).jpg") },
+  maintenance: { src: "/services/maintenance.jpg", alt: "Các dòng mã nguồn trên màn hình", author: "Artem Sapegin", license: "CC0", url: commons("Lines_of_code_(Unsplash).jpg") },
+}

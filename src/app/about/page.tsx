@@ -1,4 +1,5 @@
-import { milestones, principles } from "@/data/content"
+import Image from "next/image"
+import { principles } from "@/data/content"
 import { siteConfig } from "@/config/site"
 import { buildMetadata } from "@/lib/seo"
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs"
@@ -39,7 +40,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={280}>
               <p className="leading-relaxed text-muted-foreground">
-                Năm {siteConfig.foundingYear}, tụi mình rời đi để làm theo cách mình tin: ít dự án hơn, kỹ hơn, và nói chuyện thẳng thắn với khách hàng. Bảy năm sau, team đã có 18 người, hơn 60 sản phẩm đang chạy — nhưng cách làm vẫn giữ nguyên như ngày đầu.
+                Năm {siteConfig.foundingYear}, tụi mình rời đi để làm theo cách mình tin: ít dự án hơn, kỹ hơn, và nói chuyện thẳng thắn với khách hàng. Cách làm đó vẫn là kim chỉ nam của chúng tôi cho tới hôm nay.
               </p>
             </Reveal>
           </div>
@@ -63,18 +64,45 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className="bg-ink py-20 text-background md:py-28" aria-labelledby="timeline">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading tone="dark" eyebrow="Hành trình" title={<span id="timeline">Vài cột mốc trên đường đi</span>} />
-          <ol className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-background/10 md:grid-cols-2 lg:grid-cols-4">
-            {milestones.map((m, i) => (
-              <Reveal as="li" key={m.year} delay={i * 90} className="list-none bg-ink p-8">
-                <p className="font-heading text-5xl text-brand italic">{m.year}</p>
-                <h3 className="mt-6 text-xl font-medium text-background">{m.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-background/60">{m.text}</p>
-              </Reveal>
-            ))}
-          </ol>
+      <section className="bg-ink py-20 text-background md:py-28" aria-labelledby="location">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionHeading tone="dark" eyebrow="Ở đâu" title={<span id="location">Làm việc từ TP. Hồ Chí Minh</span>} />
+            <dl className="mt-10 space-y-5 text-[17px]">
+              <div>
+                <dt className="font-mono text-xs tracking-[0.18em] text-background/50 uppercase">Địa chỉ</dt>
+                <dd className="mt-1 text-background/85">{siteConfig.contact.address}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs tracking-[0.18em] text-background/50 uppercase">Giờ làm việc</dt>
+                <dd className="mt-1 text-background/85">{siteConfig.contact.hours}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-xs tracking-[0.18em] text-background/50 uppercase">Liên hệ</dt>
+                <dd className="mt-1 text-background/85">
+                  <a href={`mailto:${siteConfig.contact.email}`} className="underline underline-offset-4 hover:text-brand">
+                    {siteConfig.contact.email}
+                  </a>
+                  {" · "}
+                  <a href={`tel:${siteConfig.contact.phoneRaw}`} className="underline underline-offset-4 hover:text-brand">
+                    {siteConfig.contact.phone}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <figure>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl ring-1 ring-white/10">
+              <Image src="/about/hcmc.jpg" alt="Toàn cảnh Thành phố Hồ Chí Minh, Việt Nam" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            </div>
+            <figcaption className="mt-3 text-xs text-background/50">
+              Ảnh:{" "}
+              <a href="https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City,_Vietnam_(Unsplash_e7cHiYzQdmM).jpg" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-background">
+                Tony Lam Hoang
+              </a>{" "}
+              · CC0 · Wikimedia Commons
+            </figcaption>
+          </figure>
         </div>
       </section>
 

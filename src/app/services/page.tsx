@@ -5,7 +5,7 @@ import { absoluteUrl, buildMetadata, serializeJsonLd } from "@/lib/seo"
 import { PageHero } from "@/components/sections/PageHero"
 import { CtaBand } from "@/components/sections/CtaBand"
 import { Icon } from "@/components/ui/Icon"
-import { ServiceVisual } from "@/components/ui/ServiceVisual"
+import { ServicePhoto } from "@/components/ui/ServicePhoto"
 import { LinkButton } from "@/components/ui/link-button"
 import { Reveal } from "@/components/motion/Reveal"
 import { Faq } from "@/components/sections/Faq"
@@ -91,7 +91,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                   <div className="mt-8">
-                    <ServiceVisual slug={s.slug} className="h-32" />
+                    <ServicePhoto slug={s.slug} />
                   </div>
                   <div className="mt-7 flex flex-wrap gap-3">
                     <LinkButton href={`/services/${s.slug}`} variant="primary" arrow>

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowRight, ArrowUpRight, Quote } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
 import { projects } from "@/data/content"
 import { projectExtras } from "@/data/project-extras"
 import { absoluteUrl, buildMetadata, serializeJsonLd } from "@/lib/seo"
@@ -8,7 +8,6 @@ import { siteConfig } from "@/config/site"
 import { tones } from "@/lib/tones"
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs"
 import { Cover } from "@/components/ui/Cover"
-import { Avatar } from "@/components/ui/Avatar"
 import { LinkButton } from "@/components/ui/link-button"
 import { CtaBand } from "@/components/sections/CtaBand"
 import { coverVariant } from "@/components/sections/Projects"
@@ -33,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
   if (!p) return { title: "Không tìm thấy dự án" }
   return buildMetadata({
     title: `${p.name} — ${p.category}`,
-    description: `${p.summary} Xem thách thức, giải pháp và kết quả đo được của dự án ${p.name}.`,
+    description: `${p.summary} Dự án mẫu do ${siteConfig.name} thiết kế.`,
     path: `/projects/${p.slug}`,
     image: siteConfig.ogImage,
   })
@@ -59,23 +58,21 @@ export default async function ProjectPage({ params }: Props) {
     description: p.summary,
     dateCreated: p.year,
     url: absoluteUrl(`/projects/${p.slug}`),
-    creator: { "@id": absoluteUrl("/#organization") },
     keywords: p.tags.join(", "),
   }
 
   const meta = [
-    ["Khách hàng", x.client],
-    ["Dịch vụ", x.services.join(" · ")],
-    ["Thời gian", x.duration],
-    ["Đội ngũ", `${x.team} · ${x.platform}`],
+    ["Loại dự án", p.category.split(" · ")[0]],
+    ["Trọng tâm", x.focus.join(" · ")],
+    ["Thiết kế", x.published],
+    ["Hình thức", "Dự án mẫu (concept)"],
   ]
 
   const toc = [
     ["01", "Bài toán", "bai-toan"],
     ["02", "Giải pháp", "giai-phap"],
     ["03", "Điểm nhấn", "diem-nhan"],
-    ["04", "Hành trình", "hanh-trinh"],
-    ["05", "Màn hình", "man-hinh"],
+    ["04", "Phạm vi", "pham-vi"],
   ]
 
   return (
@@ -100,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
             <span className="rounded-full px-4 py-1.5 font-mono text-[11px] font-medium tracking-[0.16em] uppercase" style={{ background: `${t.solid}`, color: t.ink }}>
               {p.category}
             </span>
-            <span className="font-mono text-xs tracking-[0.16em] text-muted-foreground uppercase">Case study · {p.year}</span>
+            <span className="font-mono text-xs tracking-[0.16em] text-muted-foreground uppercase">Dự án mẫu · {p.year}</span>
           </div>
 
           <h1 className="mt-6 text-[3.4rem] leading-[0.98] font-medium tracking-[-0.03em] sm:text-7xl md:text-[7.5rem]">
@@ -126,7 +123,7 @@ export default async function ProjectPage({ params }: Props) {
           <Reveal variant="scale">
             <TiltCard max={2.5}>
               <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] shadow-[0_60px_120px_-50px_rgba(30,28,25,0.55)] ring-1 ring-black/5 md:rounded-[2.5rem]">
-                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} />
+                <Cover title={p.name} tone={p.tone} variant={coverVariant[p.slug]} image={p.image} alt={`Ảnh dự án mẫu ${p.name}`} />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/[0.14] to-transparent" aria-hidden />
               </div>
             </TiltCard>
@@ -171,7 +168,7 @@ export default async function ProjectPage({ params }: Props) {
       {/* ============ CÂU CHUYỆN ============ */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[220px_1fr] lg:gap-20">
-          <nav aria-label="Mục lục case study" className="hidden lg:block">
+          <nav aria-label="Mục lục dự án" className="hidden lg:block">
             <ol className="sticky top-32 space-y-1 border-l border-border">
               {toc.map(([n, label, id]) => (
                 <li key={id}>
@@ -188,7 +185,7 @@ export default async function ProjectPage({ params }: Props) {
             <Reveal as="section" className="scroll-mt-28">
               <div id="bai-toan">
                 <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">01 · Bài toán</p>
-                <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Điều gì đang cản trở?</h2>
+                <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Yêu cầu thường gặp</h2>
                 <p className="mt-7 text-xl leading-[1.75] text-foreground/80 md:text-[1.35rem]">{p.challenge}</p>
               </div>
             </Reveal>
@@ -197,10 +194,10 @@ export default async function ProjectPage({ params }: Props) {
               <div id="giai-phap">
                 <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">02 · Giải pháp</p>
                 <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">
-                  Cách tụi mình <span className="italic text-brand-ink">giải quyết</span>
+                  Cách tụi mình <span className="italic text-brand-ink">triển khai</span>
                 </h2>
                 <p className="mt-7 text-xl leading-[1.75] text-foreground/80 md:text-[1.35rem]">{p.solution}</p>
-                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Công nghệ sử dụng">
+                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Kỹ thuật và công nghệ">
                   {p.tags.map((tag) => (
                     <li key={tag} className="rounded-full bg-sand px-4 py-2 text-sm font-medium ring-1 ring-black/[0.04]">
                       {tag}
@@ -213,7 +210,7 @@ export default async function ProjectPage({ params }: Props) {
             <section id="diem-nhan" className="scroll-mt-28">
               <Reveal>
                 <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">03 · Điểm nhấn</p>
-                <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Những chi tiết làm nên khác biệt</h2>
+                <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Những phần chính của sản phẩm</h2>
               </Reveal>
               <ul className="mt-10 space-y-4">
                 {x.highlights.map((h, i) => (
@@ -235,82 +232,25 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ============ HÀNH TRÌNH ============ */}
-      <section id="hanh-trinh" className="scroll-mt-28 bg-sand py-20 md:py-28">
+      {/* ============ PHẠM VI ============ */}
+      <section id="pham-vi" className="scroll-mt-28 bg-sand py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">04 · Hành trình</p>
-            <h2 className="mt-4 max-w-2xl text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">
-              Từ ý tưởng tới ngày ra mắt trong <span className="italic text-brand-ink">{x.duration}</span>
-            </h2>
+            <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">04 · Phạm vi</p>
+            <h2 className="mt-4 max-w-2xl text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Một dự án như thế này gồm những gì</h2>
+            <ul className="mt-10 grid gap-3 md:grid-cols-2">
+              {x.deliverables.map((d) => (
+                <li key={d} className="flex items-start gap-3 rounded-2xl bg-white p-5 ring-1 ring-border">
+                  <Check className="mt-1 size-5 shrink-0 text-brand-ink" aria-hidden />
+                  <span className="text-[17px]">{d}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              Đây là dự án mẫu (concept) do {siteConfig.name} tự thiết kế để minh hoạ năng lực: tên thương hiệu, nội dung và số liệu trong ảnh là giả định, không phải khách hàng thật. Ảnh nền trong giao diện là ảnh CC0 từ Wikimedia Commons. Bạn có cần một sản phẩm tương tự? Hãy gửi yêu cầu để nhận báo giá theo phạm vi thực tế.
+            </p>
           </Reveal>
-          <ol className="mt-14 grid gap-5 md:grid-cols-4">
-            {x.phases.map((ph, i) => (
-              <Reveal as="li" key={ph.name} delay={i * 100} className="list-none">
-                <div className="relative h-full rounded-3xl bg-white p-6 ring-1 ring-border">
-                  <div className="flex items-center justify-between">
-                    <span className="grid size-10 place-items-center rounded-full font-mono text-sm font-medium" style={{ background: t.solid, color: t.ink }}>
-                      {i + 1}
-                    </span>
-                    <span className="rounded-full bg-sand px-3 py-1 font-mono text-[11px] text-muted-foreground">{ph.time}</span>
-                  </div>
-                  <h3 className="mt-6 text-xl font-medium">{ph.name}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{ph.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ol>
         </div>
-      </section>
-
-      {/* ============ MÀN HÌNH ============ */}
-      <section id="man-hinh" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-20 md:py-28">
-        <Reveal>
-          <p className="font-mono text-xs tracking-[0.18em] text-brand-ink uppercase">05 · Màn hình</p>
-          <h2 className="mt-4 text-4xl leading-[1.1] font-medium tracking-tight md:text-5xl">Một vài màn hình tiêu biểu</h2>
-        </Reveal>
-        <ul className="mt-12 grid gap-5 md:grid-cols-6">
-          {x.screens.map((s, i) => (
-            <Reveal as="li" key={s.caption} delay={i * 100} className={`list-none ${i === 0 ? "md:col-span-6" : "md:col-span-3"}`}>
-              <figure className="group">
-                <div className={`relative overflow-hidden rounded-[2rem] ring-1 ring-black/5 ${i === 0 ? "aspect-[16/8]" : "aspect-[4/3]"}`}>
-                  <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]">
-                    <Cover title={`${p.name} — ${s.caption}`} tone={p.tone} variant={s.variant} image={s.image} />
-                  </div>
-                </div>
-                <figcaption className="mt-4 flex items-center gap-3 text-[15px] text-muted-foreground">
-                  <span className="font-mono text-xs text-brand-ink">0{i + 1}</span>
-                  {s.caption}
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      {/* ============ TRÍCH DẪN ============ */}
-      <section className="mx-auto max-w-6xl px-6 pb-24" aria-label="Nhận xét của khách hàng">
-        <Reveal variant="scale">
-          <figure className="relative overflow-hidden rounded-[2.5rem] px-8 py-14 md:px-16 md:py-20" style={{ background: `linear-gradient(135deg, ${t.solid}, ${t.solid}cc)` }}>
-            <Quote className="absolute -top-4 right-10 size-40 opacity-[0.07]" style={{ color: t.ink }} fill="currentColor" aria-hidden />
-            <blockquote className="relative max-w-4xl font-heading text-3xl leading-[1.25] font-medium tracking-tight italic md:text-5xl md:leading-[1.2]" style={{ color: t.ink }}>
-              “{p.testimonial}”
-            </blockquote>
-            <figcaption className="relative mt-10 flex items-center gap-4">
-              <span className="size-14 overflow-hidden rounded-full ring-2 ring-white/70">
-                <Avatar name={x.quoteBy.name} tone={p.tone} compact />
-              </span>
-              <span>
-                <span className="block text-lg font-semibold" style={{ color: t.ink }}>
-                  {x.quoteBy.name}
-                </span>
-                <span className="block text-[15px]" style={{ color: `${t.ink}bb` }}>
-                  {x.quoteBy.role}
-                </span>
-              </span>
-            </figcaption>
-          </figure>
-        </Reveal>
       </section>
 
       {/* ============ DỰ ÁN TIẾP THEO ============ */}
@@ -329,24 +269,24 @@ export default async function ProjectPage({ params }: Props) {
               <h3 className="mt-4 text-5xl leading-none font-medium tracking-tight text-background md:text-7xl">{next.name}</h3>
               <p className="mt-5 max-w-md text-background/65">{next.summary}</p>
               <span className="mt-8 inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 font-medium text-ink transition-all group-hover:gap-3 group-hover:bg-brand group-hover:text-white">
-                Xem case study <ArrowUpRight className="size-4" aria-hidden />
+                Xem chi tiết <ArrowUpRight className="size-4" aria-hidden />
               </span>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl ring-1 ring-white/10">
               <div className="size-full transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]">
-                <Cover title={next.name} tone={next.tone} variant={coverVariant[next.slug]} image={next.image} />
+                <Cover title={next.name} tone={next.tone} variant={coverVariant[next.slug]} image={next.image} alt={`Ảnh dự án mẫu ${next.name}`} />
               </div>
             </div>
           </Link>
         </Reveal>
         <div className="mt-8 flex justify-center">
           <LinkButton href="/projects" variant="ghost">
-            Xem tất cả dự án
+            Xem tất cả website
           </LinkButton>
         </div>
       </section>
 
-      <CtaBand title={`Muốn có một sản phẩm như ${p.name}?`} text="Kể cho tụi mình nghe ý tưởng của bạn — buổi tư vấn đầu tiên hoàn toàn miễn phí." />
+      <CtaBand title={`Cần một sản phẩm như ${p.name}?`} text="Kể cho tụi mình nghe ý tưởng của bạn — buổi tư vấn đầu tiên hoàn toàn miễn phí." />
     </article>
   )
 }

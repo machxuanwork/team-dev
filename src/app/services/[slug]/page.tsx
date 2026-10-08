@@ -11,7 +11,7 @@ import { CtaBand } from "@/components/sections/CtaBand"
 import { Faq } from "@/components/sections/Faq"
 import { ProjectCard } from "@/components/sections/Projects"
 import { Icon } from "@/components/ui/Icon"
-import { ServiceVisual } from "@/components/ui/ServiceVisual"
+import { ServicePhoto } from "@/components/ui/ServicePhoto"
 import { LinkButton } from "@/components/ui/link-button"
 import { Reveal } from "@/components/motion/Reveal"
 
@@ -39,7 +39,7 @@ export default async function ServicePage({ params }: Props) {
   const d = serviceDetails[slug]
   const others = services.filter((s) => s.slug !== slug)
   const posts = seo.relatedPosts.map(getPost).filter((p) => p !== undefined)
-  const relatedProjects = projects.filter((p) => p.tags.some((t) => d.tech.includes(t))).slice(0, 2)
+  const relatedProjects = slug === "web" ? projects.filter((p) => p.group === "website").slice(0, 2) : []
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -100,7 +100,7 @@ export default async function ServicePage({ params }: Props) {
                 <dd className="mt-1 font-medium">{d.from}</dd>
               </div>
             </dl>
-            <ServiceVisual slug={slug} className="mt-4 h-32" />
+            <ServicePhoto slug={slug} className="mt-4" />
           </div>
         </Reveal>
       </section>
@@ -133,7 +133,7 @@ export default async function ServicePage({ params }: Props) {
       {relatedProjects.length > 0 && (
         <section className="mx-auto max-w-6xl px-6 py-20" aria-labelledby="related-projects">
           <h2 id="related-projects" className="text-3xl font-medium tracking-tight md:text-4xl">
-            Dự án liên quan
+            Dự án mẫu liên quan
           </h2>
           <ul className="mt-10 grid gap-x-8 gap-y-14 md:grid-cols-2">
             {relatedProjects.map((p, i) => (

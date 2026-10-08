@@ -22,8 +22,8 @@ export const serviceSeo: Record<string, ServiceSeo> = {
     keywords: ["thiết kế website", "thiết kế website chuẩn SEO", "lập trình web", "làm web app", "website thương mại điện tử"],
     faqs: [
       { q: "Thiết kế website chuẩn SEO nghĩa là gì?", a: "Là website được tối ưu cả về kỹ thuật (tốc độ, Core Web Vitals, cấu trúc heading, sitemap, dữ liệu có cấu trúc, tương thích di động) lẫn nội dung (thẻ title, description, URL thân thiện, liên kết nội bộ). Chúng tôi làm toàn bộ phần kỹ thuật và hướng dẫn bạn phần nội dung." },
-      { q: "Làm website mất bao lâu?", a: "Website giới thiệu doanh nghiệp thường 3–5 tuần. Website bán hàng hoặc web app có nhiều tính năng mất 8–12 tuần, tuỳ độ phức tạp. Bạn sẽ có lịch làm việc chi tiết ngay sau buổi tư vấn đầu tiên." },
-      { q: "Chi phí thiết kế website là bao nhiêu?", a: "Website giới thiệu bắt đầu từ khoảng 45 triệu đồng. Cửa hàng online và web app phức tạp hơn sẽ báo giá theo từng hạng mục. Chúng tôi luôn gửi bảng chi tiết để bạn biết mình đang trả tiền cho phần nào." },
+      { q: "Làm website mất bao lâu?", a: "Thời gian phụ thuộc phạm vi và mức độ sẵn sàng của nội dung. Bạn sẽ nhận lịch làm việc chi tiết ngay sau buổi tư vấn đầu tiên." },
+      { q: "Chi phí thiết kế website là bao nhiêu?", a: "Chi phí phụ thuộc phạm vi: số trang, tính năng, tích hợp và nội dung. Chúng tôi báo giá theo từng hạng mục sau buổi tư vấn đầu tiên. Chúng tôi luôn gửi bảng chi tiết để bạn biết mình đang trả tiền cho phần nào." },
       { q: "Tôi có tự cập nhật nội dung website được không?", a: "Được. Chúng tôi tích hợp trang quản trị nội dung (CMS) dễ dùng và hướng dẫn team bạn cách đăng bài, sửa trang, thay hình mà không cần biết lập trình." },
     ],
     relatedPosts: ["core-web-vitals-7-viec-nho", "nextjs-hay-react-thuan"],
@@ -39,9 +39,9 @@ export const serviceSeo: Record<string, ServiceSeo> = {
     ],
     keywords: ["làm app mobile", "phát triển ứng dụng di động", "lập trình app iOS Android", "React Native", "Flutter"],
     faqs: [
-      { q: "Nên làm app native hay cross-platform (React Native, Flutter)?", a: "Với đa số sản phẩm kinh doanh, cross-platform là lựa chọn tốt: một team, một codebase, chi phí thấp hơn 30–40% và ra mắt nhanh hơn. App native phù hợp khi cần hiệu năng đồ hoạ cực cao hoặc tính năng phần cứng đặc thù." },
-      { q: "Làm một ứng dụng di động mất bao lâu?", a: "Bản MVP thường mất 8–12 tuần. Ứng dụng đầy đủ tính năng mất 3–5 tháng. Chúng tôi khuyên bạn ra mắt bản MVP trước để kiểm chứng thị trường rồi mới mở rộng." },
-      { q: "Chi phí làm app mobile là bao nhiêu?", a: "MVP một nền tảng bắt đầu từ khoảng 150 triệu đồng. Chi phí phụ thuộc số lượng màn hình, tích hợp bên thứ ba và backend. Xem thêm bài phân tích chi phí chi tiết trên blog của chúng tôi." },
+      { q: "Nên làm app native hay cross-platform (React Native, Flutter)?", a: "Với đa số sản phẩm kinh doanh, cross-platform là lựa chọn tốt: một team, một codebase và thường ra mắt nhanh hơn so với làm riêng từng nền tảng. App native phù hợp khi cần hiệu năng đồ hoạ cực cao hoặc tính năng phần cứng đặc thù." },
+      { q: "Làm một ứng dụng di động mất bao lâu?", a: "Thời gian phụ thuộc số màn hình, tích hợp và backend. Chúng tôi khuyên bạn ra mắt bản MVP trước để kiểm chứng thị trường rồi mới mở rộng." },
+      { q: "Chi phí làm app mobile là bao nhiêu?", a: "Chi phí phụ thuộc số lượng màn hình, tích hợp bên thứ ba và backend. Xem thêm bài phân tích chi phí chi tiết trên blog của chúng tôi." },
       { q: "Các bạn có hỗ trợ đưa app lên App Store và Google Play không?", a: "Có. Chúng tôi lo hồ sơ tài khoản nhà phát triển, ảnh chụp màn hình, mô tả, chính sách quyền riêng tư và xử lý phản hồi từ Apple, Google." },
     ],
     relatedPosts: ["chi-phi-lam-app-mobile"],
@@ -70,12 +70,12 @@ export const serviceSeo: Record<string, ServiceSeo> = {
     h1Accent: "ổn định, an toàn, tiết kiệm",
     intro: [
       "Hạ tầng tốt là hạ tầng bạn không phải nghĩ tới. Chúng tôi thiết kế kiến trúc cloud trên AWS, dựng quy trình CI/CD để mỗi lần deploy chỉ là một cú bấm, kèm giám sát và cảnh báo để phát hiện sự cố trước khi khách hàng nhận ra.",
-      "Nhiều doanh nghiệp đang trả tiền cloud nhiều hơn 30–50% mức cần thiết. Chúng tôi rà soát, tối ưu và ghi lại mọi thứ để team bạn tự vận hành được.",
+      "Hoá đơn cloud thường phát sinh từ tài nguyên dư thừa hoặc cấu hình chưa phù hợp. Chúng tôi rà soát, tối ưu và ghi lại mọi thứ để team bạn tự vận hành được.",
     ],
     keywords: ["dịch vụ DevOps", "triển khai AWS", "CI/CD", "tối ưu chi phí cloud", "hạ tầng cloud"],
     faqs: [
       { q: "DevOps là gì và doanh nghiệp nhỏ có cần không?", a: "DevOps là cách phối hợp giữa lập trình và vận hành để phát hành phần mềm nhanh và ít lỗi. Doanh nghiệp nhỏ càng cần vì không có nhiều người để sửa sự cố thủ công." },
-      { q: "Các bạn có giúp giảm chi phí AWS không?", a: "Có. Chúng tôi phân tích hoá đơn, tắt tài nguyên thừa, chọn loại máy phù hợp và dùng các gói tiết kiệm. Nhiều trường hợp giảm được 30% trở lên." },
+      { q: "Các bạn có giúp giảm chi phí AWS không?", a: "Có. Chúng tôi phân tích hoá đơn, tắt tài nguyên thừa, chọn loại máy phù hợp và dùng các gói tiết kiệm." },
       { q: "Dữ liệu của tôi có được sao lưu và bảo mật không?", a: "Có. Chúng tôi thiết lập sao lưu tự động, mã hoá dữ liệu, phân quyền tối thiểu và kiểm tra khôi phục định kỳ." },
     ],
     relatedPosts: [],

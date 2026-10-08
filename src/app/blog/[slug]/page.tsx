@@ -89,8 +89,17 @@ export default async function BlogPostPage({ params }: Props) {
 
       <div className="mx-auto mt-12 max-w-5xl px-6">
         <div className="relative aspect-[16/8] overflow-hidden rounded-[2rem]">
-          <Cover title={post.title} tone={post.tone} variant="editorial" label={post.category} image={post.image} />
+          <Cover title={post.title} tone={post.tone} variant="editorial" label={post.category} image={post.image} alt={post.imageAlt} />
         </div>
+        {post.imageCredit && (
+          <p className="mt-3 text-xs text-muted-foreground">
+            Ảnh:{" "}
+            <a href={post.imageCredit.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+              {post.imageCredit.author}
+            </a>
+            {" "}· {post.imageCredit.license} · Wikimedia Commons
+          </p>
+        )}
       </div>
 
       <div className="mx-auto mt-14 max-w-2xl space-y-6 px-6 text-[18px] leading-[1.85] text-foreground/85">
@@ -123,6 +132,23 @@ export default async function BlogPostPage({ params }: Props) {
           }
         })}
       </div>
+
+      {post.sources && post.sources.length > 0 && (
+        <aside className="mx-auto mt-14 max-w-2xl px-6" aria-labelledby="sources">
+          <h2 id="sources" className="text-lg font-medium">
+            Nguồn tham khảo
+          </h2>
+          <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+            {post.sources.map((s) => (
+              <li key={s.url}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
 
       <div className="mx-auto mt-20 max-w-2xl px-6">
         <div className="rounded-3xl bg-brand-soft p-8 text-center md:p-10">
